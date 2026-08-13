@@ -596,22 +596,6 @@ Hace tres cosas, todas visibles *en el segundo del deploy o antes*:
 
 Con eso, históricamente, **sale de verde** (~+8 900 SOL netos; acierta ~56% de las veces tras fees; casi no se pega un drawdown gordo).
 
-Un modelo que junta esas piezas, en el examen de junio (nuestra muestra), ordena muy bien (ROC 0.94) y pilla el 79% de sus compras. Una regla de una línea cuenta la historia pero no llega al mismo F1.
+Un modelo que junta esas piezas, en el examen de junio (nuestra muestra), ordena muy bien (ROC 0.95) y pilla el 81% de sus compras. Una regla de una línea cuenta la historia pero no llega al mismo F1.
 
-Lo que **aún no** está cerrado del todo:
-
-- tasar las compras que *nosotros* haríamos y *él* no (faltan velas);  
-- demostrar P&L *si llegas un bloque tarde* (otros ya mostraron que se vuelve negativo);  
-- el trámite Kaggle: recortar este texto a 3000 palabras, notebook público, repo público.
-
----
-
-## 13. Qué falta para entregar (checklist)
-
-1. Writeup ≤ 3000 palabras (recortar este informe) + imagen de portada.  
-2. Notebook público que: cargue tablas → arme features → train → valid (umbral) → test → P&L.  
-3. Repo público con `scripts/` y este markdown.  
-4. Opcional: bajar `mcap_candles` y tasar los 1 623 FP.  
-5. Decir en grande, en el writeup, que nuestras métricas PR son de **muestra**, no del universo de 5M.
-
-La **ciencia** de la decisión está. El **sobre** de Kaggle es el siguiente trámite.
+Límites honestos: el PR-AUC 0.70 es de una **muestra** de negativos (en el universo completo de junio un trabajo público reporta 0.22). Las compras extra de la réplica no tienen precio local. Llegar un bloque tarde, en ese mismo trabajo, deja de ser rentable.

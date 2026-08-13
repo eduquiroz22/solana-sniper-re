@@ -31,7 +31,7 @@ PR-AUC is on a **sample** of negatives (~200k of ~5M). A public kernel on the fu
 |------|------------|
 | `notebooks/solana-sniper-reverse-engineering.ipynb` | The paper: rules, figures, metrics, replica |
 | `notebooks/assets/` | Figure PNGs (also embedded in the notebook) |
-| `data/metadata/kaggle_writeup/WRITEUP_BODY.md` | Short writeup text for the Kaggle form |
+| `data/metadata/kaggle_writeup/` | English figures + short narrative |
 | `data/metadata/kaggle_train_backtest.json` | Numbers dump |
 | `scripts/00`–`24`, `src/` | Full pipeline if you have the challenge files |
 | `data/raw/`, `data/processed/` | **Not in git** (~30 GB). Download from the competition hosts. |

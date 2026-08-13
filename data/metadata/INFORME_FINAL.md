@@ -30,5 +30,3 @@ Ablación: solo “¿ya lo conocía?” ROC 0.77; + forma de la tx 0.92; + anti-
 Drawdown máximo del bot ~−47 SOL. Gana también en desconocidos (+2 938 SOL).
 
 Muestra para mirar: `data/processed/test_holdout_muestra.csv`.
-
-Cierre Kaggle: **14 ago 2026, 21:00 UTC**. Falta publicar notebook + repo.

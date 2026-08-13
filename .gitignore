@@ -18,6 +18,10 @@ env/
 .env
 .env.*
 
+# Private submit notes (not for the public repo)
+data/metadata/kaggle_writeup/ENTREGA.md
+data/metadata/kaggle_writeup/FORMULARIO.md
+
 # Data (keep directory placeholders)
 data/raw/**
 !data/raw/.gitkeep
