@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Part 1 bot stats + retrained model on held-out test + wallet P&L backtest."""
+"""Train the official HGB model, dump metrics, replica P&L on the test split."""
 
 from __future__ import annotations
 
@@ -247,8 +247,7 @@ def train_and_eval(df: pl.DataFrame) -> tuple[dict, pl.DataFrame]:
         return sub.select(use).to_pandas(), sub["label"].to_numpy(), sub
 
     x_tr, y_tr, _ = xy("train")
-    # Sin sample_weight: el peso 15× inflaba el score (sobreconfianza) y
-    # bajaba PR/F1 en valid. Elegido en scripts/22_win_calibrate.py.
+    # No class weight: a 15× positive weight inflated scores and hurt valid PR/F1.
     clf = HistGradientBoostingClassifier(
         max_depth=6,
         learning_rate=0.07,

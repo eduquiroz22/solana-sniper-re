@@ -25,35 +25,46 @@ PR-AUC is on a **sample** of negatives (~200k of ~5M). A public kernel on the fu
 
 ---
 
-## Repo map (for reviewers)
+## Reproduce
 
-| Path | What it is |
-|------|------------|
-| `notebooks/solana-sniper-reverse-engineering.ipynb` | The paper: rules, figures, metrics, replica |
-| `notebooks/assets/` | Figure PNGs (also embedded in the notebook) |
-| `data/metadata/kaggle_writeup/` | English figures + short narrative |
-| `data/metadata/kaggle_train_backtest.json` | Numbers dump |
-| `scripts/00`–`24`, `src/` | Full pipeline if you have the challenge files |
-| `data/raw/`, `data/processed/` | **Not in git** (~30 GB). Download from the competition hosts. |
-
-No future prices are used as features. Post-deploy data is P&L only.
-
----
-
-## Reproduce locally (optional)
-
-Needs the challenge wallet + sampled deploys on disk, then:
+Challenge files are **not** in git (~30 GB). Point `config.yaml` at the hosts, then:
 
 ```bash
 python -m pip install -r requirements.txt
-python scripts/19_train_backtest_kaggle.py
-python scripts/23_kaggle_figures_en.py
+
+python scripts/download_wallet.py --with-jsonl
+python scripts/download_positives.py --yes
+python scripts/sample_negatives.py --execute --i-approve-large-download
+python scripts/extract_tx_features.py
+python scripts/extract_deployer_activity.py --yes --i-approve-large-download
+python scripts/filter_deployer_activity.py
+python scripts/extract_factory_features.py
+python scripts/train_eval.py
+python scripts/make_figures.py
 ```
 
-The notebook itself only needs `notebooks/assets/` — it does not download the TAR.
+| Script | Writes |
+|--------|--------|
+| `download_wallet.py` | `data/raw/wallet/` |
+| `download_positives.py` | `data/raw/positives/` |
+| `sample_negatives.py` | `data/samples/negative_200k.parquet` |
+| `extract_tx_features.py` | `pos_tx_features.parquet`, `neg_tx_features.parquet` |
+| `extract_deployer_activity.py` + `filter_deployer_activity.py` | filtered deployer history |
+| `extract_factory_features.py` | `labeled_features.parquet`, `cold_hypothesis_table.parquet` |
+| `train_eval.py` | scores, `kaggle_train_backtest.json` |
+| `make_figures.py` | `data/metadata/kaggle_writeup/*.png` |
+
+The notebook only needs `notebooks/assets/`. It does not download the TAR.
+
+No future prices as features. Post-deploy data is P&L only.
 
 ---
 
-## Infra notes (Phase 1)
+## Repo map
 
-Downloads are gated (`config.yaml`, `--i-approve-large-download`). The half-year TAR is ~39 GiB and has no HTTP Range. See `scripts/00`–`07` if you are rebuilding the sample from scratch.
+| Path | What |
+|------|------|
+| `notebooks/solana-sniper-reverse-engineering.ipynb` | Paper: rules, figures, metrics, replica |
+| `scripts/`, `src/` | Pipeline above |
+| `data/metadata/` | Metrics JSON + English figures |
+| `data/raw/`, `data/processed/` | Not in git |

@@ -339,7 +339,7 @@ def main() -> int:
     if not args.execute:
         print(
             "\nDRY-RUN only (default). To execute, re-run with:\n"
-            "  python scripts/07_sample_negatives.py --execute "
+            "  python scripts/sample_negatives.py --execute "
             "--i-approve-large-download [--size N] [--seed S]\n"
             "WARNING: worst-case network transfer is many GB even though the "
             "on-disk sample is small."

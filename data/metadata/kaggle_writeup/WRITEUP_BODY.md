@@ -71,7 +71,7 @@ A public replica that fills **one slot late** loses ~5 SOL. Copying *who* to buy
 ## Reproducibility
 
 - Features: `t_decision` = deploy `blockTime` only.
-- Code: scripts `00`–`23` + `src/`. Writeup figures: `data/metadata/kaggle_writeup/`.
+- Code: `scripts/` + `src/`. Writeup figures: `data/metadata/kaggle_writeup/`.
 - Notebook + public repo linked below (same pipeline: features → train → valid threshold → test → wallet P&L).
 
 ---

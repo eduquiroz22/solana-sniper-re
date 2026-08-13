@@ -567,7 +567,7 @@ Encaja con nosotros: la decisión se puede copiar a medias; **el fill en el mism
 
 ---
 
-Las **16 figuras** del writeup están en `data/metadata/figures/` (índice en `figures/README.md`). Regenerar: `python3 scripts/21_make_figures.py`.
+Las figuras oficiales (inglés) están en `data/metadata/kaggle_writeup/`. Regenerar: `python3 scripts/make_figures.py`.
 
 ## 11. Archivos para mirar con tus ojos
 
@@ -580,7 +580,7 @@ Las **16 figuras** del writeup están en `data/metadata/figures/` (índice en `f
 | `data/processed/test_holdout_muestra.csv` | Muestra de junio: score, si el bot compró, P&L si existe |
 | `data/processed/test_holdout_scored.parquet` | Los 22 132 deploys de test, todos |
 | `data/processed/scored_deploys.parquet` | Train+valid+test con score |
-| `scripts/00` … `scripts/20` | El código, en orden |
+| `scripts/` | Pipeline de reproducción (ver README) |
 
 ---
 

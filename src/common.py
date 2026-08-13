@@ -1,4 +1,4 @@
-"""Shared helpers for Solana Sniper Phase 1 scripts."""
+"""Shared helpers for pipeline scripts."""
 
 from __future__ import annotations
 

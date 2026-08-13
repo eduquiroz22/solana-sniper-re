@@ -1,6 +1,6 @@
 # Figuras para el writeup / notebook
 
-Generadas con `python3 scripts/21_make_figures.py`. Una idea por gráfico, en español.
+Figuras en español (histórico). Las oficiales del writeup están en `kaggle_writeup/` (`python scripts/make_figures.py`).
 
 | Archivo | Qué enseña | Parte Kaggle |
 |---------|------------|--------------|
