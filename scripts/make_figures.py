@@ -18,6 +18,15 @@ from sklearn.metrics import auc, average_precision_score, roc_curve, precision_r
 from src.common import ensure_dirs, load_config  # noqa: E402
 
 OUT = ROOT / "data" / "metadata" / "kaggle_writeup"
+META = ROOT / "data" / "metadata" / "kaggle_train_backtest.json"
+
+
+def _meta() -> dict:
+    import json
+
+    if META.is_file():
+        return json.loads(META.read_text(encoding="utf-8"))
+    return {}
 
 
 def style() -> None:
@@ -97,13 +106,23 @@ def main() -> int:
     style()
     cfg = load_config()
     paths = ensure_dirs(cfg)
+    meta = _meta()
+    beh = meta.get("behavior") or {}
+    lat = beh.get("latency") or {}
+    rates = meta.get("june_rule_rates") or {}
+    ab = meta.get("ablations_test") or {}
+    model = meta.get("model") or {}
     print("kaggle writeup figs →", OUT, flush=True)
     cover()
 
     # 1 latency
     fig, ax = plt.subplots(figsize=(7.4, 4.1))
     labels = ["Same block\n(~0.4 s)", "Next block", "Later"]
-    vals = [79.6, 18.7, 1.7]
+    vals = [
+        100 * float(lat.get("frac_same_slot", 0.796)),
+        100 * float(lat.get("frac_next_slot", 0.187)),
+        100 * float(lat.get("frac_later", 0.017)),
+    ]
     ax.bar(labels, vals, color=["#2f6f4e", "#c4a35a", "#8a8a8a"], width=0.62)
     for i, v in enumerate(vals):
         ax.text(i, v + 1.3, f"{v:.1f}%", ha="center", fontsize=12)
@@ -114,20 +133,24 @@ def main() -> int:
     save(fig, "01_same_block.png")
 
     # 2 hot cold
+    hot_r = 100 * float(rates.get("test_hot_buy_rate", 0.388))
+    cold_r = 100 * float(rates.get("test_cold_buy_rate", 0.048))
     fig, ax = plt.subplots(figsize=(7.2, 4.1))
-    ax.bar(["Known deployer\n(hot)", "First time\n(cold)"], [38.8, 4.8], color=["#2f6f4e", "#6b7c93"], width=0.55)
-    ax.text(0, 40.0, "38.8%", ha="center")
-    ax.text(1, 6.2, "4.8%", ha="center")
+    ax.bar(["Known deployer\n(hot)", "First time\n(cold)"], [hot_r, cold_r], color=["#2f6f4e", "#6b7c93"], width=0.55)
+    ax.text(0, hot_r + 1.2, f"{hot_r:.1f}%", ha="center")
+    ax.text(1, cold_r + 1.4, f"{cold_r:.1f}%", ha="center")
     ax.set_ylabel("% of deploys the sniper bought (June sample)")
     ax.set_ylim(0, 50)
     ax.set_title("Repeat deployers are bought ~8× more often")
     save(fig, "02_hot_vs_cold.png")
 
     # 3 factory
+    burst_r = 100 * float(rates.get("test_cold_burst_buy_rate", 0.0075))
+    noburst_r = 100 * float(rates.get("test_cold_no_burst_buy_rate", 0.0748))
     fig, ax = plt.subplots(figsize=(7.2, 4.1))
-    ax.bar(["Burst: 3+ tokens / hour", "No burst"], [0.75, 7.48], color=["#a33b3b", "#2f6f4e"], width=0.55)
-    ax.text(0, 0.95, "0.75%", ha="center")
-    ax.text(1, 7.7, "7.5%", ha="center")
+    ax.bar(["Burst: 3+ tokens / hour", "No burst"], [burst_r, noburst_r], color=["#a33b3b", "#2f6f4e"], width=0.55)
+    ax.text(0, burst_r + 0.2, f"{burst_r:.2f}%", ha="center")
+    ax.text(1, noburst_r + 0.22, f"{noburst_r:.1f}%", ha="center")
     ax.set_ylabel("% bought (cold deployers only, June)")
     ax.set_ylim(0, 10)
     ax.set_title("On strangers, the sniper skips token factories")
@@ -135,7 +158,11 @@ def main() -> int:
 
     # 4 ablation
     names = ["Known-deployer\nflag only", "Anti-factory\nonly", "Deploy-tx\nshape only", "Known +\ntx shape", "All features"]
-    roc = [0.77, 0.87, 0.88, 0.92, 0.95]
+    keys = ["solo_hot", "solo_fabrica", "solo_tx", "hot_mas_tx", "todo"]
+    roc = [
+        float((ab.get(k) or {}).get("roc_auc", d))
+        for k, d in zip(keys, [0.77, 0.87, 0.88, 0.92, 0.95])
+    ]
     fig, ax = plt.subplots(figsize=(7.6, 4.3))
     y = np.arange(len(names))
     ax.barh(y, roc, color=["#8a8a8a", "#6b7c93", "#6b7c93", "#3d6b8a", "#2f6f4e"], height=0.62)
@@ -151,15 +178,10 @@ def main() -> int:
     ax.invert_yaxis()
     save(fig, "04_ablation.png")
 
-    # 5 equity
+    # 5 equity — all closed SOL/WSOL books (not only labeled-table overlap)
     pnl = pl.read_parquet(paths["processed"] / "bot_token_pnl_net.parquet")
-    lab = pl.read_parquet(paths["processed"] / "labeled_features.parquet").select(
-        ["token_address", "label"]
-    )
     bot = (
-        lab.filter(pl.col("label") == 1)
-        .join(pnl, on="token_address", how="inner")
-        .filter(pl.col("n_sells") > 0)
+        pnl.filter(pl.col("n_sells") > 0)
         .sort("first_ts")
         .with_columns(
             [
@@ -170,11 +192,12 @@ def main() -> int:
     )
     daily = bot.group_by("day").agg(pl.col("equity").last()).sort("day")
     days, eq = daily["day"].to_list(), daily["equity"].to_list()
+    net_total = float(bot["net_sol"].sum())
     fig, ax = plt.subplots(figsize=(8.2, 4.2))
     ax.plot(range(len(eq)), eq, color="#2f6f4e", lw=1.8)
     ax.fill_between(range(len(eq)), eq, color="#2f6f4e", alpha=0.12)
     ax.set_ylabel("Cumulative net SOL (after gas + tip + DEX)")
-    ax.set_title("Sniper P&L, Mar–Jun 2026  ·  +8,894 SOL net")
+    ax.set_title(f"Sniper P&L, Mar–Jun 2026  ·  {net_total:+,.0f} SOL net")
     step = max(len(days) // 6, 1)
     ticks = list(range(0, len(days), step))
     ax.set_xticks(ticks)
@@ -183,17 +206,23 @@ def main() -> int:
     save(fig, "05_equity.png")
 
     # 6 fees
+    closed = pnl.filter(pl.col("n_sells") > 0)
+    fee_vals = [
+        float(closed["gross_sol"].sum()),
+        float(closed["fees_sol"].sum()),
+        float(closed["net_sol"].sum()),
+    ]
     fig, ax = plt.subplots(figsize=(7.2, 4.1))
-    ax.bar(["Gross", "Fees\n(gas+tip+DEX)", "Net"], [17629, 8735, 8894], color=["#6b7c93", "#a33b3b", "#2f6f4e"], width=0.55)
-    for i, v in enumerate([17629, 8735, 8894]):
+    ax.bar(["Gross", "Fees\n(gas+tip+DEX)", "Net"], fee_vals, color=["#6b7c93", "#a33b3b", "#2f6f4e"], width=0.55)
+    for i, v in enumerate(fee_vals):
         ax.text(i, v + 280, f"{v:,.0f}", ha="center")
     ax.set_ylabel("SOL")
     ax.set_title("Fees consume about half of gross P&L")
     save(fig, "06_fees.png")
 
-    # 7 replica — live from scored
+    # 7 replica — live from scored + valid F1 threshold
     sc = pl.read_parquet(paths["processed"] / "scored_deploys.parquet").filter(pl.col("split") == "test")
-    thr = 0.23
+    thr = float(model.get("valid_best_f1_threshold") or 0.23)
     n_bot = int(sc["label"].sum())
     n_rep = int((sc["score"] >= thr).sum())
     n_tp = int(((sc["score"] >= thr) & (sc["label"] == 1)).sum())
@@ -254,12 +283,20 @@ def main() -> int:
     save(fig, "10_calibration.png")
 
     # quiet + sol
+    quiet_h = [
+        float(rates.get("test_cold_hours_since_last_launch_med_bought") or 26.2),
+        float(rates.get("test_cold_hours_since_last_launch_med_skipped") or 0.041),
+    ]
+    create_sol = [
+        float(rates.get("test_cold_create_sol_med_bought") or 1.03),
+        float(rates.get("test_cold_create_sol_med_skipped") or 0.16),
+    ]
     fig, axes = plt.subplots(1, 2, figsize=(9.0, 4.1))
-    axes[0].bar(["Bought", "Skipped"], [26.2, 0.041], color=["#2f6f4e", "#a33b3b"], width=0.55)
+    axes[0].bar(["Bought", "Skipped"], quiet_h, color=["#2f6f4e", "#a33b3b"], width=0.55)
     axes[0].set_ylabel("Hours since last launch (median)")
     axes[0].set_title("Quiet stranger (~26 h) vs spray (~2 min)")
     axes[0].set_yscale("log")
-    axes[1].bar(["Bought", "Skipped"], [1.03, 0.16], color=["#2f6f4e", "#a33b3b"], width=0.55)
+    axes[1].bar(["Bought", "Skipped"], create_sol, color=["#2f6f4e", "#a33b3b"], width=0.55)
     axes[1].set_ylabel("SOL spent in the create tx (median)")
     axes[1].set_title("Creates with ~1 SOL, not cents")
     fig.tight_layout()

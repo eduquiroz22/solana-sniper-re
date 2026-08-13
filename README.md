@@ -32,7 +32,7 @@ Challenge files are **not** in git (~30 GB). Point `config.yaml` at the hosts, t
 ```bash
 python -m pip install -r requirements.txt
 
-python scripts/download_wallet.py --with-jsonl
+python scripts/download_wallet.py
 python scripts/download_positives.py --yes
 python scripts/sample_negatives.py --execute --i-approve-large-download
 python scripts/extract_tx_features.py
@@ -51,8 +51,8 @@ python scripts/make_figures.py
 | `extract_tx_features.py` | `pos_tx_features.parquet`, `neg_tx_features.parquet` |
 | `extract_deployer_activity.py` + `filter_deployer_activity.py` | filtered deployer history |
 | `extract_factory_features.py` | `labeled_features.parquet`, `cold_hypothesis_table.parquet` |
-| `train_eval.py` | scores, `kaggle_train_backtest.json` |
-| `make_figures.py` | `data/metadata/kaggle_writeup/*.png` |
+| `train_eval.py` | scores, net P&L, `kaggle_train_backtest.json` (official metrics) |
+| `make_figures.py` | `data/metadata/kaggle_writeup/*.png` from those outputs |
 
 The notebook only needs `notebooks/assets/`. It does not download the TAR.
 

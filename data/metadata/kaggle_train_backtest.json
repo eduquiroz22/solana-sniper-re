@@ -26,6 +26,8 @@
       "n": 15927,
       "frac_same_second": 0.9068876750172663,
       "frac_same_slot": 0.7963207132542224,
+      "frac_next_slot": 0.18704087398756827,
+      "frac_later": 0.01663841275820933,
       "median_s": 0.0
     },
     "entry_sol_like": {
@@ -40,12 +42,16 @@
     },
     "pnl_sol_like_complete": {
       "n_positions": 15708,
-      "hit_rate": 0.7791571173924116,
-      "net_sol": 17628.990103347,
-      "median_sol": 0.3041128424999999,
-      "mean_win_sol": 1.5115662194942399,
-      "mean_loss_sol": -0.25110085241942925,
-      "note": "SOL+WSOL quote only; buy is cash out, sell is cash in; no extra fee subtraction beyond quote."
+      "gross_sol": 17628.990103347,
+      "fees_sol": 8734.620164959528,
+      "net_sol": 8894.369938387472,
+      "hit_rate_gross": 0.7791571173924116,
+      "hit_rate": 0.5558950853068501,
+      "median_sol": 0.06224589350000004,
+      "mean_win_sol": 1.397419908440907,
+      "mean_loss_sol": -0.47418301349176134,
+      "max_drawdown_sol": -47.02556712800015,
+      "note": "SOL+WSOL quote only. Gross = buy cash-out + sell cash-in. Net = gross − gas_native − tip_fee − dex_native. hit_rate is after fees (the 55.6% number)."
     }
   },
   "model": {
@@ -145,8 +151,7 @@
         "cold_roc": 0.9448137935368712,
         "cold_pr": 0.6080434582727656
       }
-    },
-    "weighting": "none (mejor PR/F1 en valid; el peso 15x inflaba scores)"
+    }
   },
   "test_extra_operating_points": {
     "top_50": {
@@ -208,9 +213,23 @@
     "bot_realized_sol_on_test_tokens_with_pnl": 2614.9902599879997,
     "n_bot_with_sol_pnl": 2363,
     "replica_captured_bot_sol": 2215.534739862,
+    "bot_net_sol_test_after_fees": 1192.3921231779998,
+    "replica_captured_net_sol_after_fees": 970.1643862189999,
     "n_replica_fp_no_price": 1575,
-    "note": "P&L only for tokens the sniper actually traded (SOL/WSOL quotes). False positives have no price path in local data (mcap_candles 2.8GiB not used). Sampled negatives inflate precision vs the full ~5M universe.",
-    "bot_net_sol_test_after_fees": 1192.392123178,
-    "replica_captured_net_sol_after_fees": 970.1643862189999
-  }
+    "note": "P&L only for tokens the sniper actually traded (SOL/WSOL quotes). Net = quote cashflow − gas − tip − DEX. False positives have no price path in local data (mcap_candles 2.8GiB not used). Sampled negatives inflate precision vs the full ~5M universe."
+  },
+  "june_rule_rates": {
+    "test_hot_buy_rate": 0.38815142576204525,
+    "test_cold_buy_rate": 0.047940655447298496,
+    "n_test": 22132,
+    "n_test_hot": 4068,
+    "n_test_cold": 18064,
+    "test_cold_burst_buy_rate": 0.007491675915649278,
+    "test_cold_no_burst_buy_rate": 0.07479734708916728,
+    "test_cold_hours_since_last_launch_med_bought": 26.186944444444446,
+    "test_cold_hours_since_last_launch_med_skipped": 0.04055555555555555,
+    "test_cold_create_sol_med_bought": 1.03374192,
+    "test_cold_create_sol_med_skipped": 0.1645265915
+  },
+  "weighting": "none (15x positive weight inflated scores and hurt valid PR/F1)"
 }

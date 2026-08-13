@@ -26,7 +26,7 @@ from src.download.tar_stream import (  # noqa: E402
 def enrich_positives(dest: Path) -> Path:
     import polars as pl
 
-    src = ROOT / "data/raw/positives/bought_deploy_txs.jsonl.gz"
+    src = ensure_dirs()["positives"] / "bought_deploy_txs.jsonl.gz"
     rows = []
     with gzip.open(src, "rt", encoding="utf-8", errors="replace") as fh:
         for i, line in enumerate(fh, start=1):

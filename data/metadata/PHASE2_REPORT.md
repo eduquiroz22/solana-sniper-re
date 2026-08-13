@@ -1,5 +1,7 @@
 # Phase 2 report — baseline sniper classifier
 
+Frozen lab notes. The official model is `scripts/train_eval.py` (no class weight; see `kaggle_train_backtest.json`).
+
 Leakage-safe tabular model at `t_decision` = deployment `blockTime`.
 No post-deploy trades, mcap, or `bought_deployers_activity` (that table is defined by the label).
 

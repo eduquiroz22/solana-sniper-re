@@ -1,6 +1,6 @@
 # Phase 1 Report — Solana Sniper Infra & Data Prep
 
-Generated after running scripts `00`–`07` (dry-run only for negatives). No ML.
+Frozen lab notes from the first data pass. The live pipeline is `scripts/` (see repo README). Script names below are historical.
 
 ## A. Servers
 
