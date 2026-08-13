@@ -1,0 +1,905 @@
+{
+  "queue_or_mempool_window": {
+    "note": "No mempool-arrival timestamp exists. Same slot ≈ the create and the sniper buy landed in the same ~400ms block. d_index = buy tx position minus create tx position in that block.",
+    "all_positives": {
+      "n": 15927,
+      "frac_same_second": 0.9068876750172663,
+      "frac_same_slot": 0.7963207132542224,
+      "frac_next_slot": 0.18704087398756827,
+      "frac_le_2_slots": 0.9845545300433226,
+      "n_same_slot_with_index": 12683,
+      "same_slot_d_index_median": 118.0,
+      "same_slot_d_index_p90": 422.0,
+      "frac_buy_immediately_after_create": 0.0006307655917369708,
+      "frac_buy_later_in_same_block": 0.999369234408263,
+      "frac_buy_before_create_in_block": 0.0,
+      "frac_d_index_eq_1": 7.884569896712135e-05
+    },
+    "hot_positives": {
+      "n": 11832,
+      "frac_same_second": 0.9159905341446923,
+      "frac_same_slot": 0.8041751183231913,
+      "frac_next_slot": 0.18779580797836376,
+      "frac_le_2_slots": 0.9929006085192698,
+      "n_same_slot_with_index": 9515,
+      "same_slot_d_index_median": 118.0,
+      "same_slot_d_index_p90": 425.0,
+      "frac_buy_immediately_after_create": 0.0007356805044666316,
+      "frac_buy_later_in_same_block": 0.9992643194955334,
+      "frac_buy_before_create_in_block": 0.0,
+      "frac_d_index_eq_1": 0.00010509721492380452
+    },
+    "cold_positives": {
+      "n": 4095,
+      "frac_same_second": 0.8805860805860806,
+      "frac_same_slot": 0.7736263736263737,
+      "frac_next_slot": 0.18485958485958487,
+      "frac_le_2_slots": 0.9604395604395605,
+      "n_same_slot_with_index": 3168,
+      "same_slot_d_index_median": 116.0,
+      "same_slot_d_index_p90": 417.0,
+      "frac_buy_immediately_after_create": 0.0003156565656565657,
+      "frac_buy_later_in_same_block": 0.9996843434343434,
+      "frac_buy_before_create_in_block": 0.0,
+      "frac_d_index_eq_1": 0.0
+    },
+    "cold_test_positives": {
+      "n": 866,
+      "frac_same_second": 0.918013856812933,
+      "frac_same_slot": 0.8383371824480369,
+      "frac_next_slot": 0.1374133949191686,
+      "frac_le_2_slots": 0.9780600461893765,
+      "n_same_slot_with_index": 726,
+      "same_slot_d_index_median": 118.0,
+      "same_slot_d_index_p90": 370.0,
+      "frac_buy_immediately_after_create": 0.0,
+      "frac_buy_later_in_same_block": 1.0,
+      "frac_buy_before_create_in_block": 0.0,
+      "frac_d_index_eq_1": 0.0
+    }
+  },
+  "battery_univariate": {
+    "all": {
+      "n": 186916,
+      "n_pos": 4095,
+      "flags": {
+        "is_first_launch": {
+          "frac_pos": 0.25518925518925517,
+          "frac_neg": 0.4099091461046597,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.013752714351516747,
+          "pos_rate_if_not": 0.02749456869585598,
+          "lift": 0.5001974936813457
+        },
+        "wallet_age_lt_1h": {
+          "frac_pos": 0.24468864468864468,
+          "frac_neg": 0.36056032950262823,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.014973102211595936,
+          "pos_rate_if_not": 0.02577585919530651,
+          "lift": 0.5808963378540789
+        },
+        "wallet_age_lt_1d": {
+          "frac_pos": 0.32332112332112334,
+          "frac_neg": 0.4538318902095492,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.015706930505136784,
+          "pos_rate_if_not": 0.027002007366841416,
+          "lift": 0.5816949196312332
+        },
+        "burst_3_launches_1h": {
+          "frac_pos": 0.08547008547008547,
+          "frac_neg": 0.3209314028475941,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.005929891737119428,
+          "pos_rate_if_not": 0.02928229066485265,
+          "lift": 0.20250778209223363
+        },
+        "serial_10_launches": {
+          "frac_pos": 0.32551892551892553,
+          "frac_neg": 0.4353438609350129,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.016472449118297643,
+          "pos_rate_if_not": 0.02605832460634193,
+          "lift": 0.6321376898608697
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9633699633699634,
+          "frac_neg": 0.9208788924685894,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.022895978549166866,
+          "pos_rate_if_not": 0.010263427984946972,
+          "lift": 2.230831509973825
+        },
+        "has_any_tip": {
+          "frac_pos": 0.3137973137973138,
+          "frac_neg": 0.37755509487422123,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.018276205376191155,
+          "pos_rate_if_not": 0.024098245373308406,
+          "lift": 0.7584039872228276
+        },
+        "has_service_tip": {
+          "frac_pos": 0.29426129426129427,
+          "frac_neg": 0.3382817072436974,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.019111816019032515,
+          "pos_rate_if_not": 0.023331664863642968,
+          "lift": 0.8191364024268103
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.020024420024420026,
+          "frac_neg": 0.039421073071474286,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.011249828508711757,
+          "pos_rate_if_not": 0.022340739421133793,
+          "lift": 0.5035566771827478
+        },
+        "payer_ge_5sol": {
+          "frac_pos": 0.41025641025641024,
+          "frac_neg": 0.35609694728723723,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.02515647929082687,
+          "pos_rate_if_not": 0.020102552150099057,
+          "lift": 1.2514072393889006
+        },
+        "token_is_pump": {
+          "frac_pos": 0.9499389499389499,
+          "frac_neg": 0.8447826015610899,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.02456831760708376,
+          "pos_rate_if_not": 0.007172346231894199,
+          "lift": 3.425422701686186
+        },
+        "has_create_v2": {
+          "frac_pos": 0.9992673992673993,
+          "frac_neg": 0.9813642852845132,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.022298998397872548,
+          "pos_rate_if_not": 0.0008797653958944282,
+          "lift": 25.34652817891513
+        }
+      },
+      "continuous": {
+        "launches_before": {
+          "median_pos": 4.0,
+          "median_neg": 4.0
+        },
+        "launches_last_1h": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "launches_last_24h": {
+          "median_pos": 0.0,
+          "median_neg": 1.0
+        },
+        "events_before": {
+          "median_pos": 47.0,
+          "median_neg": 89.0
+        },
+        "buys_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "sells_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "age_s": {
+          "median_pos": 959778.0,
+          "median_neg": 390355.5
+        },
+        "s_since_last_launch": {
+          "median_pos": 79347.5,
+          "median_neg": 257.0
+        },
+        "sell_buy_ratio": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "payer_sol_pre": {
+          "median_pos": 3600090000.0,
+          "median_neg": 2324739670.0
+        },
+        "sol_spent_lamports": {
+          "median_pos": 1730954363.0,
+          "median_neg": 439406000.0
+        },
+        "cu_price_micro": {
+          "median_pos": 977144.0,
+          "median_neg": 1000000.0
+        },
+        "fee_lamports": {
+          "median_pos": 122000.0,
+          "median_neg": 138786.0
+        },
+        "tx_index": {
+          "median_pos": 652.0,
+          "median_neg": 764.0
+        },
+        "n_ix": {
+          "median_pos": 5.0,
+          "median_neg": 6.0
+        },
+        "hour_utc": {
+          "median_pos": 14.0,
+          "median_neg": 15.0
+        }
+      }
+    },
+    "train": {
+      "n": 155057,
+      "n_pos": 2508,
+      "flags": {
+        "is_first_launch": {
+          "frac_pos": 0.1638755980861244,
+          "frac_neg": 0.4331591816399976,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.006181473627216532,
+          "pos_rate_if_not": 0.023676722969921415,
+          "lift": 0.2610780907083042
+        },
+        "wallet_age_lt_1h": {
+          "frac_pos": 0.1463317384370016,
+          "frac_neg": 0.3655415636942884,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.006538393016212364,
+          "pos_rate_if_not": 0.021642221031669816,
+          "lift": 0.3021128472278564
+        },
+        "wallet_age_lt_1d": {
+          "frac_pos": 0.2236842105263158,
+          "frac_neg": 0.46061921087650526,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.007920596374315242,
+          "pos_rate_if_not": 0.023115554025335692,
+          "lift": 0.342652240376065
+        },
+        "burst_3_launches_1h": {
+          "frac_pos": 0.09728867623604466,
+          "frac_neg": 0.30124746802666685,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.005281499599558432,
+          "pos_rate_if_not": 0.02079773650076246,
+          "lift": 0.25394588489784975
+        },
+        "serial_10_launches": {
+          "frac_pos": 0.37719298245614036,
+          "frac_neg": 0.40968475702888907,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.01491102249263118,
+          "pos_rate_if_not": 0.017049795882725347,
+          "lift": 0.8745572436875243
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9784688995215312,
+          "frac_neg": 0.9334771122721224,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.01694107901004453,
+          "pos_rate_if_not": 0.005293079788276808,
+          "lift": 3.2006090381569314
+        },
+        "has_any_tip": {
+          "frac_pos": 0.3062200956937799,
+          "frac_neg": 0.3724377085395512,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.013337269680287585,
+          "pos_rate_if_not": 0.017850914089911157,
+          "lift": 0.7471477154116966
+        },
+        "has_service_tip": {
+          "frac_pos": 0.2926634768740032,
+          "frac_neg": 0.3448531291584999,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.013760521924973285,
+          "pos_rate_if_not": 0.017440717291281608,
+          "lift": 0.788988302210024
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.014354066985645933,
+          "frac_neg": 0.027761571691718726,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.00842893935846406,
+          "pos_rate_if_not": 0.016394094942501294,
+          "lift": 0.5141448422756317
+        },
+        "payer_ge_5sol": {
+          "frac_pos": 0.45893141945773525,
+          "frac_neg": 0.36385685910756543,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.02031523024515947,
+          "pos_rate_if_not": 0.013790650406504065,
+          "lift": 1.4731161798995518
+        },
+        "token_is_pump": {
+          "frac_pos": 0.9649122807017544,
+          "frac_neg": 0.8329717008961055,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.01868884615681641,
+          "pos_rate_if_not": 0.00344180225281602,
+          "lift": 5.4299593015622944
+        },
+        "has_create_v2": {
+          "frac_pos": 0.9988038277511961,
+          "frac_neg": 0.9787281463660856,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.016500997964547556,
+          "pos_rate_if_not": 0.0009236453201970443,
+          "lift": 17.865080462950154
+        }
+      },
+      "continuous": {
+        "launches_before": {
+          "median_pos": 6.0,
+          "median_neg": 2.0
+        },
+        "launches_last_1h": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "launches_last_24h": {
+          "median_pos": 0.0,
+          "median_neg": 1.0
+        },
+        "events_before": {
+          "median_pos": 75.0,
+          "median_neg": 76.0
+        },
+        "buys_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "sells_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "age_s": {
+          "median_pos": 1899532.0,
+          "median_neg": 384060.0
+        },
+        "s_since_last_launch": {
+          "median_pos": 78210.0,
+          "median_neg": 294.0
+        },
+        "sell_buy_ratio": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "payer_sol_pre": {
+          "median_pos": 4365358100.0,
+          "median_neg": 2444808671.0
+        },
+        "sol_spent_lamports": {
+          "median_pos": 2030785680.5,
+          "median_neg": 513174764.0
+        },
+        "cu_price_micro": {
+          "median_pos": 1000000.0,
+          "median_neg": 1000000.0
+        },
+        "fee_lamports": {
+          "median_pos": 134080.5,
+          "median_neg": 160000.0
+        },
+        "tx_index": {
+          "median_pos": 716.0,
+          "median_neg": 789.0
+        },
+        "n_ix": {
+          "median_pos": 5.0,
+          "median_neg": 6.0
+        },
+        "hour_utc": {
+          "median_pos": 14.0,
+          "median_neg": 14.0
+        }
+      }
+    },
+    "valid": {
+      "n": 13795,
+      "n_pos": 721,
+      "flags": {
+        "is_first_launch": {
+          "frac_pos": 0.4119278779472954,
+          "frac_neg": 0.29501300290653204,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.07149735194992778,
+          "pos_rate_if_not": 0.043978840369256304,
+          "lift": 1.6257216277105038
+        },
+        "wallet_age_lt_1h": {
+          "frac_pos": 0.4119278779472954,
+          "frac_neg": 0.33440416093009023,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.06361105161704862,
+          "pos_rate_if_not": 0.04646066184527723,
+          "lift": 1.369137870417891
+        },
+        "wallet_age_lt_1d": {
+          "frac_pos": 0.492371705963939,
+          "frac_neg": 0.42014685635612664,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.06070451436388509,
+          "pos_rate_if_not": 0.046055115137787844,
+          "lift": 1.3180840864748493
+        },
+        "burst_3_launches_1h": {
+          "frac_pos": 0.07212205270457697,
+          "frac_neg": 0.4255774820253939,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.009259259259259259,
+          "pos_rate_if_not": 0.08179484044504218,
+          "lift": 0.11320101865692299
+        },
+        "serial_10_launches": {
+          "frac_pos": 0.2593619972260749,
+          "frac_neg": 0.5579011779103564,
+          "median_pos": 0.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.024996658200775297,
+          "pos_rate_if_not": 0.08457396262274311,
+          "lift": 0.29555973760242554
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9403606102635229,
+          "frac_neg": 0.8698179593085513,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.0562655601659751,
+          "pos_rate_if_not": 0.02464183381088825,
+          "lift": 2.283334941619222
+        },
+        "has_any_tip": {
+          "frac_pos": 0.31761442441054094,
+          "frac_neg": 0.4405690683799908,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.038236767406912675,
+          "pos_rate_if_not": 0.06302843966179862,
+          "lift": 0.6066589560535779
+        },
+        "has_service_tip": {
+          "frac_pos": 0.29403606102635227,
+          "frac_neg": 0.29891387486614657,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.05145631067961165,
+          "pos_rate_if_not": 0.05260981912144703,
+          "lift": 0.9780742747057813
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.023578363384188627,
+          "frac_neg": 0.14165519351384426,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.00909577314071696,
+          "pos_rate_if_not": 0.05903068925037733,
+          "lift": 0.15408549783549783
+        },
+        "payer_ge_5sol": {
+          "frac_pos": 0.3231622746185853,
+          "frac_neg": 0.3190301361480802,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.05290644868301544,
+          "pos_rate_if_not": 0.051964647002449155,
+          "lift": 1.0181238925864713
+        },
+        "token_is_pump": {
+          "frac_pos": 0.9459084604715673,
+          "frac_neg": 0.9117332109530366,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.05411839390572925,
+          "pos_rate_if_not": 0.03269069572506287,
+          "lift": 1.6554677930649997
+        },
+        "has_create_v2": {
+          "frac_pos": 1.0,
+          "frac_neg": 0.9937280097904237,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.05257784583971414,
+          "pos_rate_if_not": 0.0,
+          "lift": null
+        }
+      },
+      "continuous": {
+        "launches_before": {
+          "median_pos": 2.0,
+          "median_neg": 19.0
+        },
+        "launches_last_1h": {
+          "median_pos": 0.0,
+          "median_neg": 1.0
+        },
+        "launches_last_24h": {
+          "median_pos": 0.0,
+          "median_neg": 5.0
+        },
+        "events_before": {
+          "median_pos": 21.0,
+          "median_neg": 194.0
+        },
+        "buys_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "sells_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "age_s": {
+          "median_pos": 115637.0,
+          "median_neg": 395804.0
+        },
+        "s_since_last_launch": {
+          "median_pos": 55291.0,
+          "median_neg": 132.0
+        },
+        "sell_buy_ratio": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "payer_sol_pre": {
+          "median_pos": 2929271489.0,
+          "median_neg": 1901252267.0
+        },
+        "sol_spent_lamports": {
+          "median_pos": 1025776080.0,
+          "median_neg": 163854053.5
+        },
+        "cu_price_micro": {
+          "median_pos": 733333.0,
+          "median_neg": 416666.0
+        },
+        "fee_lamports": {
+          "median_pos": 110000.0,
+          "median_neg": 13500.0
+        },
+        "tx_index": {
+          "median_pos": 509.0,
+          "median_neg": 538.0
+        },
+        "n_ix": {
+          "median_pos": 5.0,
+          "median_neg": 5.0
+        },
+        "hour_utc": {
+          "median_pos": 13.0,
+          "median_neg": 15.0
+        }
+      }
+    },
+    "test": {
+      "n": 18064,
+      "n_pos": 866,
+      "flags": {
+        "is_first_launch": {
+          "frac_pos": 0.3891454965357968,
+          "frac_neg": 0.2910222118851029,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.06308498689629352,
+          "pos_rate_if_not": 0.041581512340826916,
+          "lift": 1.5171402708783481
+        },
+        "wallet_age_lt_1h": {
+          "frac_pos": 0.3903002309468822,
+          "frac_neg": 0.336260030236074,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.05521973533736318,
+          "pos_rate_if_not": 0.04420999748806832,
+          "lift": 1.249032763511607
+        },
+        "wallet_age_lt_1d": {
+          "frac_pos": 0.47113163972286376,
+          "frac_neg": 0.41923479474357483,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.05355736413756892,
+          "pos_rate_if_not": 0.04384453379283936,
+          "lift": 1.2215288772511899
+        },
+        "burst_3_launches_1h": {
+          "frac_pos": 0.06235565819861432,
+          "frac_neg": 0.4159786021630422,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.007491675915649278,
+          "pos_rate_if_not": 0.07479734708916728,
+          "lift": 0.10015964746340957
+        },
+        "serial_10_launches": {
+          "frac_pos": 0.23094688221709006,
+          "frac_neg": 0.5697755552971275,
+          "median_pos": 0.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.020002000200020003,
+          "pos_rate_if_not": 0.08257904525728456,
+          "lift": 0.24221641383357556
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9387990762124712,
+          "frac_neg": 0.8479474357483429,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.052805923616523774,
+          "pos_rate_if_not": 0.019865067466266866,
+          "lift": 2.658230268092178
+        },
+        "has_any_tip": {
+          "frac_pos": 0.3325635103926097,
+          "frac_neg": 0.3750436097220607,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.0427426536064114,
+          "pos_rate_if_not": 0.05103302136676673,
+          "lift": 0.8375489528481237
+        },
+        "has_service_tip": {
+          "frac_pos": 0.29907621247113164,
+          "frac_neg": 0.3099197581114083,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.04634102701735552,
+          "pos_rate_if_not": 0.04865731462925852,
+          "lift": 0.9523959012215981
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.03348729792147806,
+          "frac_neg": 0.0651238516106524,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.025239338555265448,
+          "pos_rate_if_not": 0.049482707655926696,
+          "lift": 0.5100638132166249
+        },
+        "payer_ge_5sol": {
+          "frac_pos": 0.3418013856812933,
+          "frac_neg": 0.3154436562390976,
+          "median_pos": 0.0,
+          "median_neg": 0.0,
+          "pos_rate_if": 0.051739206432441884,
+          "pos_rate_if_not": 0.04618002106457101,
+          "lift": 1.1203807456063688
+        },
+        "token_is_pump": {
+          "frac_pos": 0.9099307159353349,
+          "frac_neg": 0.8986510059309222,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.04851320568860432,
+          "pos_rate_if_not": 0.042833607907743,
+          "lift": 1.1325967635762624
+        },
+        "has_create_v2": {
+          "frac_pos": 1.0,
+          "frac_neg": 0.9953482963135248,
+          "median_pos": 1.0,
+          "median_neg": 1.0,
+          "pos_rate_if": 0.04815391459074733,
+          "pos_rate_if_not": 0.0,
+          "lift": null
+        }
+      },
+      "continuous": {
+        "launches_before": {
+          "median_pos": 2.0,
+          "median_neg": 23.0
+        },
+        "launches_last_1h": {
+          "median_pos": 0.0,
+          "median_neg": 1.0
+        },
+        "launches_last_24h": {
+          "median_pos": 0.0,
+          "median_neg": 4.0
+        },
+        "events_before": {
+          "median_pos": 17.0,
+          "median_neg": 229.5
+        },
+        "buys_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "sells_before": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "age_s": {
+          "median_pos": 144677.0,
+          "median_neg": 434104.5
+        },
+        "s_since_last_launch": {
+          "median_pos": 94273.0,
+          "median_neg": 146.0
+        },
+        "sell_buy_ratio": {
+          "median_pos": 0.0,
+          "median_neg": 0.0
+        },
+        "payer_sol_pre": {
+          "median_pos": 2944194671.5,
+          "median_neg": 1821840208.0
+        },
+        "sol_spent_lamports": {
+          "median_pos": 1033741920.0,
+          "median_neg": 164526591.5
+        },
+        "cu_price_micro": {
+          "median_pos": 434977.5,
+          "median_neg": 1000000.0
+        },
+        "fee_lamports": {
+          "median_pos": 53070.5,
+          "median_neg": 54061.0
+        },
+        "tx_index": {
+          "median_pos": 612.5,
+          "median_neg": 601.0
+        },
+        "n_ix": {
+          "median_pos": 5.0,
+          "median_neg": 5.0
+        },
+        "hour_utc": {
+          "median_pos": 14.0,
+          "median_neg": 17.0
+        }
+      }
+    }
+  },
+  "cold_only_model": {
+    "features": [
+      "hour_utc",
+      "dow",
+      "token_is_pump",
+      "token_len",
+      "days_since_bot_start",
+      "tx_index",
+      "cu",
+      "fee_lamports",
+      "n_accounts",
+      "n_signers",
+      "n_ix",
+      "n_inner_ix",
+      "cu_limit",
+      "cu_price_micro",
+      "n_pump_ix",
+      "n_sol_transfers",
+      "tip_lamports",
+      "has_jito_tip",
+      "has_service_tip",
+      "has_any_tip",
+      "has_buy_same_tx",
+      "payer_sol_pre",
+      "sol_spent_lamports",
+      "launches_before",
+      "launches_last_1h",
+      "launches_last_24h",
+      "events_before",
+      "buys_before",
+      "sells_before",
+      "age_s",
+      "s_since_last_launch",
+      "sell_buy_ratio",
+      "buy_frac",
+      "is_first_launch",
+      "wallet_age_lt_1h",
+      "burst_3_launches_1h",
+      "serial_10_launches",
+      "n_launchpads_before"
+    ],
+    "splits": {
+      "valid": {
+        "roc_auc": 0.909743364189378,
+        "pr_auc": 0.4416365117993289,
+        "precision_at_100": 0.76,
+        "base_rate": 0.052265313519391086
+      },
+      "test": {
+        "roc_auc": 0.9330792868390358,
+        "pr_auc": 0.5234354379765519,
+        "precision_at_100": 0.85,
+        "base_rate": 0.047940655447298496
+      }
+    },
+    "permutation_importance_test_roc": [
+      {
+        "feature": "s_since_last_launch",
+        "delta_roc": 0.08230536030963384
+      },
+      {
+        "feature": "n_inner_ix",
+        "delta_roc": 0.08167866778912755
+      },
+      {
+        "feature": "launches_before",
+        "delta_roc": 0.06132142124319209
+      },
+      {
+        "feature": "sol_spent_lamports",
+        "delta_roc": 0.023845134659033124
+      },
+      {
+        "feature": "cu_limit",
+        "delta_roc": 0.012600498755561879
+      },
+      {
+        "feature": "launches_last_24h",
+        "delta_roc": 0.012244168047361614
+      },
+      {
+        "feature": "events_before",
+        "delta_roc": 0.01039373435387922
+      },
+      {
+        "feature": "cu",
+        "delta_roc": 0.010276577288782035
+      },
+      {
+        "feature": "launches_last_1h",
+        "delta_roc": 0.009715265779602272
+      },
+      {
+        "feature": "cu_price_micro",
+        "delta_roc": 0.009660359158793708
+      },
+      {
+        "feature": "dow",
+        "delta_roc": 0.009227971618161801
+      },
+      {
+        "feature": "payer_sol_pre",
+        "delta_roc": 0.007959009278430018
+      },
+      {
+        "feature": "age_s",
+        "delta_roc": 0.0038243023720198333
+      },
+      {
+        "feature": "hour_utc",
+        "delta_roc": 0.003370890513881758
+      },
+      {
+        "feature": "fee_lamports",
+        "delta_roc": 0.0026225423118377833
+      }
+    ]
+  },
+  "plain": {
+    "queue": "No hay reloj de 'cuándo entró a la cola'. Solo vemos si la compra del sniper cayó en el mismo bloque (~0.4s) y a cuántas transacciones de distancia del create.",
+    "cold_vs_hot_speed": "Si los cold fueran más lentos, eso apoyaría 'necesitó tiempo para pensar'. Si salen igual de instantáneos, no."
+  }
+}

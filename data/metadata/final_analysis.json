@@ -1,0 +1,110 @@
+{
+  "rule_and_cold_start": {
+    "notes": [
+      "joined pos tx features rows=15927",
+      "joined neg tx features rows=196878",
+      "tx_index coverage pos=15927 neg=196878 usable=True"
+    ],
+    "splits": {
+      "train": {
+        "n": 173387,
+        "n_pos": 11097,
+        "rule_precision": 0.477724011346571,
+        "rule_recall": 0.773992971073263,
+        "prior_as_score_roc": 0.8674226562885521,
+        "prior_as_score_pr": 0.541583713435472,
+        "rule_roc": 0.8580667917785442,
+        "cold_n": 155408,
+        "cold_n_pos": 2508,
+        "hot_n": 17979,
+        "hot_n_pos": 8589,
+        "hot_pos_rate": 0.477724011346571,
+        "cold_pos_rate": 0.016138165345413364
+      },
+      "valid": {
+        "n": 17286,
+        "n_pos": 2385,
+        "rule_precision": 0.4766542537954741,
+        "rule_recall": 0.6976939203354298,
+        "prior_as_score_roc": 0.8018789418970235,
+        "prior_as_score_pr": 0.47381585505525453,
+        "rule_roc": 0.7875423497388846,
+        "cold_n": 13795,
+        "cold_n_pos": 721,
+        "hot_n": 3491,
+        "hot_n_pos": 1664,
+        "hot_pos_rate": 0.4766542537954741,
+        "cold_pos_rate": 0.052265313519391086
+      },
+      "test": {
+        "n": 22132,
+        "n_pos": 2445,
+        "rule_precision": 0.38815142576204525,
+        "rule_recall": 0.6458077709611452,
+        "prior_as_score_roc": 0.7729408598347367,
+        "prior_as_score_pr": 0.3831932820807843,
+        "rule_roc": 0.7596895816252366,
+        "cold_n": 18064,
+        "cold_n_pos": 866,
+        "hot_n": 4068,
+        "hot_n_pos": 1579,
+        "hot_pos_rate": 0.38815142576204525,
+        "cold_pos_rate": 0.047940655447298496
+      }
+    }
+  },
+  "tx_model": {
+    "valid": {
+      "roc_auc": 0.8916245965510736,
+      "pr_auc": 0.6076351146412821,
+      "precision_at_100": 0.84,
+      "cold_roc": 0.8004890331935337,
+      "hot_roc": 0.762635652183066,
+      "n_features": 28
+    },
+    "test": {
+      "roc_auc": 0.8941655829893248,
+      "pr_auc": 0.5537233756064355,
+      "precision_at_100": 0.88,
+      "cold_roc": 0.8283595533290165,
+      "hot_roc": 0.791725263101917,
+      "n_features": 28
+    }
+  },
+  "features_used": [
+    "hour_utc",
+    "dow",
+    "month",
+    "days_since_bot_start",
+    "token_is_pump",
+    "token_len",
+    "has_signer",
+    "creator_missing",
+    "signer_eq_creator",
+    "prior_bought_same_signer",
+    "wallet_events_before",
+    "wallet_hits_signer_before",
+    "tx_index",
+    "cu",
+    "fee_lamports",
+    "has_err",
+    "n_accounts",
+    "n_signers",
+    "n_ix",
+    "n_inner_ix",
+    "n_lookups",
+    "n_post_tb",
+    "n_logs",
+    "has_pump_program",
+    "has_compute_budget",
+    "has_token_program",
+    "has_ata",
+    "n_programs"
+  ],
+  "notes": [
+    "joined pos tx features rows=15927",
+    "joined neg tx features rows=196878",
+    "tx_index coverage pos=15927 neg=196878 usable=True"
+  ],
+  "baseline_test_roc": 0.8190845525936946
+}

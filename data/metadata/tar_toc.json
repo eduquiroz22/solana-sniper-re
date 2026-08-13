@@ -1,0 +1,39 @@
+{
+  "url": "http://65.21.203.147:48102/half_year_dataset.tar",
+  "max_transfer_bytes": 188743680,
+  "max_members": 32,
+  "members": [
+    {
+      "name": "bought_deploy_txs.jsonl.gz",
+      "size": 50815788,
+      "offset": 0,
+      "data_offset": 512,
+      "padded_size": 50816000,
+      "typeflag": "0",
+      "truncated": false,
+      "reason": null
+    },
+    {
+      "name": "bought_deploy_txs_index.parquet",
+      "size": 1947279,
+      "offset": 50816512,
+      "data_offset": 50817024,
+      "padded_size": 1947648,
+      "typeflag": "0",
+      "truncated": false,
+      "reason": null
+    },
+    {
+      "name": "bought_deployers_activity.parquet",
+      "size": 656959815,
+      "offset": 52764672,
+      "data_offset": 52765184,
+      "padded_size": 656960000,
+      "typeflag": "0",
+      "truncated": true,
+      "reason": "max_transfer_bytes"
+    }
+  ],
+  "approx_transferred_bytes": 52765184,
+  "note": "Bodies discarded; network still transfers member payloads up to the stop point. Server may ignore HTTP Range — stream is from archive start."
+}

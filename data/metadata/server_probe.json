@@ -1,0 +1,188 @@
+{
+  "dataset_server": {
+    "base": "http://65.21.203.147:48102/",
+    "listing": {
+      "url": "http://65.21.203.147:48102/",
+      "status": 200,
+      "files": [
+        "half_year_dataset.tar"
+      ],
+      "error": null,
+      "snippet": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n<title>Directory listing for /</title>\n</head>\n<body>\n<h1>Directory listing for /</h1>\n<hr>\n<ul>\n<li><a href=\"half_year_dataset.tar\">half_year_dataset.tar</a></li>\n</ul>\n<hr>\n</body>\n</html>\n"
+    },
+    "tar": {
+      "url": "http://65.21.203.147:48102/half_year_dataset.tar",
+      "head": {
+        "url": "http://65.21.203.147:48102/half_year_dataset.tar",
+        "status": 200,
+        "headers": {
+          "server": "SimpleHTTP/0.6 Python/3.8.10",
+          "date": "Wed, 12 Aug 2026 04:49:05 GMT",
+          "content-type": "application/x-tar",
+          "content-length": "41547509760",
+          "last-modified": "Tue, 07 Jul 2026 12:00:26 GMT"
+        },
+        "content_length": 41547509760,
+        "accept_ranges": false,
+        "error": null,
+        "client": "httpx"
+      },
+      "range_probe": {
+        "url": "http://65.21.203.147:48102/half_year_dataset.tar",
+        "status": 200,
+        "content_range": null,
+        "content_length": 41547509760,
+        "body_len": 5120,
+        "accept_ranges": false,
+        "headers": {
+          "server": "SimpleHTTP/0.6 Python/3.8.10",
+          "date": "Wed, 12 Aug 2026 04:49:06 GMT",
+          "content-type": "application/x-tar",
+          "content-length": "41547509760",
+          "last-modified": "Tue, 07 Jul 2026 12:00:26 GMT"
+        },
+        "error": null
+      }
+    }
+  },
+  "individual_urls": [],
+  "wallet_server": {
+    "base": "http://154.12.118.112:48114/",
+    "listing": {
+      "url": "http://154.12.118.112:48114/",
+      "status": 200,
+      "files": [
+        "5brv79e_activity.parquet",
+        "5brv79e_activity_txs.jsonl.gz",
+        "5brv79e_activity_txs_index.parquet"
+      ],
+      "error": null,
+      "snippet": "<html>\r\n<head><title>Index of /</title></head>\r\n<body>\r\n<h1>Index of /</h1><hr><pre><a href=\"../\">../</a>\r\n<a href=\"5brv79e_activity.parquet\">5brv79e_activity.parquet</a>                           09-Jul-2026 21:08            12535961\r\n<a href=\"5brv79e_activity_txs.jsonl.gz\">5brv79e_activity_txs.jsonl.gz</a>                      09-Jul-2026 21:17            91781848\r\n<a href=\"5brv79e_activity_txs_index.parquet\">5brv79e_activity_txs_index.parquet</a>                 09-Jul-2026 21:17             6766577\r\n</pre><hr></body>\r\n</html>\r\n"
+    },
+    "files": [
+      {
+        "name": "5brv79e_activity.parquet",
+        "url": "http://154.12.118.112:48114/5brv79e_activity.parquet",
+        "head": {
+          "url": "http://154.12.118.112:48114/5brv79e_activity.parquet",
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.28.3 (Ubuntu)",
+            "date": "Wed, 12 Aug 2026 04:49:06 GMT",
+            "content-type": "application/octet-stream",
+            "content-length": "12535961",
+            "last-modified": "Thu, 09 Jul 2026 21:08:20 GMT",
+            "connection": "keep-alive",
+            "etag": "\"6a500dc4-bf4899\"",
+            "accept-ranges": "bytes"
+          },
+          "content_length": 12535961,
+          "accept_ranges": true,
+          "error": null,
+          "client": "httpx"
+        },
+        "range_probe": {
+          "url": "http://154.12.118.112:48114/5brv79e_activity.parquet",
+          "status": 206,
+          "content_range": "bytes 0-1023/12535961",
+          "content_length": 1024,
+          "body_len": 1024,
+          "accept_ranges": true,
+          "headers": {
+            "server": "nginx/1.28.3 (Ubuntu)",
+            "date": "Wed, 12 Aug 2026 04:49:06 GMT",
+            "content-type": "application/octet-stream",
+            "content-length": "1024",
+            "last-modified": "Thu, 09 Jul 2026 21:08:20 GMT",
+            "connection": "keep-alive",
+            "etag": "\"6a500dc4-bf4899\"",
+            "content-range": "bytes 0-1023/12535961"
+          },
+          "error": null
+        }
+      },
+      {
+        "name": "5brv79e_activity_txs.jsonl.gz",
+        "url": "http://154.12.118.112:48114/5brv79e_activity_txs.jsonl.gz",
+        "head": {
+          "url": "http://154.12.118.112:48114/5brv79e_activity_txs.jsonl.gz",
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.28.3 (Ubuntu)",
+            "date": "Wed, 12 Aug 2026 04:49:07 GMT",
+            "content-type": "application/octet-stream",
+            "content-length": "91781848",
+            "last-modified": "Thu, 09 Jul 2026 21:17:14 GMT",
+            "connection": "keep-alive",
+            "etag": "\"6a500fda-5787ad8\"",
+            "accept-ranges": "bytes"
+          },
+          "content_length": 91781848,
+          "accept_ranges": true,
+          "error": null,
+          "client": "httpx"
+        },
+        "range_probe": {
+          "url": "http://154.12.118.112:48114/5brv79e_activity_txs.jsonl.gz",
+          "status": 206,
+          "content_range": "bytes 0-1023/91781848",
+          "content_length": 1024,
+          "body_len": 1024,
+          "accept_ranges": true,
+          "headers": {
+            "server": "nginx/1.28.3 (Ubuntu)",
+            "date": "Wed, 12 Aug 2026 04:49:07 GMT",
+            "content-type": "application/octet-stream",
+            "content-length": "1024",
+            "last-modified": "Thu, 09 Jul 2026 21:17:14 GMT",
+            "connection": "keep-alive",
+            "etag": "\"6a500fda-5787ad8\"",
+            "content-range": "bytes 0-1023/91781848"
+          },
+          "error": null
+        }
+      },
+      {
+        "name": "5brv79e_activity_txs_index.parquet",
+        "url": "http://154.12.118.112:48114/5brv79e_activity_txs_index.parquet",
+        "head": {
+          "url": "http://154.12.118.112:48114/5brv79e_activity_txs_index.parquet",
+          "status": 200,
+          "headers": {
+            "server": "nginx/1.28.3 (Ubuntu)",
+            "date": "Wed, 12 Aug 2026 04:49:07 GMT",
+            "content-type": "application/octet-stream",
+            "content-length": "6766577",
+            "last-modified": "Thu, 09 Jul 2026 21:17:14 GMT",
+            "connection": "keep-alive",
+            "etag": "\"6a500fda-673ff1\"",
+            "accept-ranges": "bytes"
+          },
+          "content_length": 6766577,
+          "accept_ranges": true,
+          "error": null,
+          "client": "httpx"
+        },
+        "range_probe": {
+          "url": "http://154.12.118.112:48114/5brv79e_activity_txs_index.parquet",
+          "status": 206,
+          "content_range": "bytes 0-1023/6766577",
+          "content_length": 1024,
+          "body_len": 1024,
+          "accept_ranges": true,
+          "headers": {
+            "server": "nginx/1.28.3 (Ubuntu)",
+            "date": "Wed, 12 Aug 2026 04:49:07 GMT",
+            "content-type": "application/octet-stream",
+            "content-length": "1024",
+            "last-modified": "Thu, 09 Jul 2026 21:17:14 GMT",
+            "connection": "keep-alive",
+            "etag": "\"6a500fda-673ff1\"",
+            "content-range": "bytes 0-1023/6766577"
+          },
+          "error": null
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+
+# Data (keep directory placeholders)
+data/raw/**
+!data/raw/.gitkeep
+data/samples/**
+!data/samples/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+!data/metadata/
+!data/metadata/**
+!data/metadata/.gitkeep
+
+# Models / large binaries
+models/*.pkl
+*.pkl
+*.joblib
+*.parquet
+*.feather
+*.arrow
+*.csv.gz
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.bin
+*.h5
+*.hdf5
+*.onnx
+*.pt
+*.pth
+
+# Probe / scratch
+_probe/
+logs/
+*.pid
+results/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store

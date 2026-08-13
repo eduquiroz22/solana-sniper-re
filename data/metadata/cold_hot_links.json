@@ -1,0 +1,65 @@
+{
+  "note": "from/to empty; shared_tx = same tx_hash as a then-hot signer; shared_token = same token_address touched by a then-hot signer; hot = sniper had already bought that signer before the activity row. Time-respecting: only activity and hot status strictly before t_decision.",
+  "interpretation": {
+    "shared_tx": "Almost never happens (~0.15%). Does not separate cold snipes from non-snipes; on valid/test it even goes the wrong way.",
+    "shared_token": "Looks strong in train (67% of cold pos vs 25% of cold neg) but vanishes on valid/test (slightly reversed). Not a stable out-of-time signal."
+  },
+  "all_cold": {
+    "n": 186916,
+    "n_pos": 4095,
+    "n_neg": 182821,
+    "frac_pos_with_prior_activity": 0.7846153846153846,
+    "frac_neg_with_prior_activity": 0.7071835292444523,
+    "frac_pos_shared_tx": 0.002442002442002442,
+    "frac_neg_shared_tx": 0.0015096733963822536,
+    "frac_pos_shared_token": 0.600976800976801,
+    "frac_neg_shared_token": 0.29558967514672824,
+    "pos_rate_if_shared_token": 0.04355675120794322,
+    "pos_rate_if_not_shared_token": 0.012529233600429398,
+    "pos_rate_if_shared_tx": 0.03496503496503497,
+    "pos_rate_if_not_shared_tx": 0.021888228044794514,
+    "n_shared_tx": 286,
+    "n_shared_token": 56501
+  },
+  "train_cold": {
+    "n": 155057,
+    "n_pos": 2508,
+    "frac_pos_shared_tx": 0.0024,
+    "frac_neg_shared_tx": 0.0010,
+    "frac_pos_shared_token": 0.667,
+    "frac_neg_shared_token": 0.247,
+    "pos_rate_if_shared_token": 0.0425,
+    "pos_rate_if_not_shared_token": 0.0072,
+    "n_shared_tx": 153,
+    "n_shared_token": 39322
+  },
+  "valid_cold": {
+    "n": 13795,
+    "n_pos": 721,
+    "frac_pos_shared_tx": 0.0042,
+    "frac_neg_shared_tx": 0.0050,
+    "frac_pos_shared_token": 0.540,
+    "frac_neg_shared_token": 0.566,
+    "pos_rate_if_shared_token": 0.0500,
+    "pos_rate_if_not_shared_token": 0.0552,
+    "n_shared_tx": 69,
+    "n_shared_token": 7785
+  },
+  "test_cold": {
+    "n": 18064,
+    "n_pos": 866,
+    "n_neg": 17198,
+    "frac_pos_with_prior_activity": 0.6535796766743649,
+    "frac_neg_with_prior_activity": 0.7346203046865915,
+    "frac_pos_shared_tx": 0.0011547344110854503,
+    "frac_neg_shared_tx": 0.0036632166530991975,
+    "frac_pos_shared_token": 0.4607390300230947,
+    "frac_neg_shared_token": 0.5230259332480521,
+    "pos_rate_if_shared_token": 0.042473919523099854,
+    "pos_rate_if_not_shared_token": 0.0538638985005767,
+    "pos_rate_if_shared_tx": 0.015625,
+    "pos_rate_if_not_shared_tx": 0.04805555555555555,
+    "n_shared_tx": 64,
+    "n_shared_token": 9394
+  }
+}

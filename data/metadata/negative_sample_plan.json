@@ -1,0 +1,35 @@
+{
+  "plan": {
+    "mode": "plan",
+    "approach": "one_pass_hash_stratified",
+    "sample_size": 200000,
+    "seed": 42,
+    "source": "http://65.21.203.147:48102/half_year_dataset.tar#not_bought_deploy_txs.jsonl.gz",
+    "output_columns": [
+      "line_number",
+      "token_address",
+      "creator_address",
+      "tx_signer",
+      "tx_hash",
+      "blockTime",
+      "blockSlot",
+      "sample_seed",
+      "sample_size"
+    ],
+    "notes": [
+      "Default CLI is dry-run: prints this plan and transfer estimate only.",
+      "Execute streams not_bought_deploy_txs.jsonl.gz via TAR (many GB network).",
+      "Requires --i-approve-large-download because transfer >> 1 GiB.",
+      "Reproducibility: hash(seed, line_number) selects reservoir keys.",
+      "Stratification: per-ISO-week reservoirs; caps rebalanced to sum to N."
+    ]
+  },
+  "estimate": {
+    "positives_prefix_estimate_bytes": 710000000,
+    "not_bought_deploy_txs_jsonl_gz_estimate_bytes": 14900000000,
+    "worst_case_stream_bytes": 15610000000,
+    "note": "TAR has no HTTP Range; streaming not_bought jsonl requires transferring (and discarding) all preceding members plus the member body."
+  },
+  "output": "/home/eduardo/Programming/KAGGLE/solana_sniper/data/samples/negative_200k.parquet",
+  "execute_requested": true
+}

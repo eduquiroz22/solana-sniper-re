@@ -1,0 +1,161 @@
+{
+  "features": [
+    "hour_utc",
+    "dow",
+    "month",
+    "days_since_bot_start",
+    "token_is_pump",
+    "token_len",
+    "has_signer",
+    "creator_missing",
+    "signer_eq_creator",
+    "prior_bought_same_signer",
+    "wallet_events_before",
+    "wallet_hits_signer_before"
+  ],
+  "split_counts": {
+    "train": {
+      "n": 173036,
+      "n_pos": 11097,
+      "pos_rate": 0.06413116345731525
+    },
+    "valid": {
+      "n": 17286,
+      "n_pos": 2385,
+      "pos_rate": 0.13797292606733774
+    },
+    "test": {
+      "n": 22132,
+      "n_pos": 2445,
+      "pos_rate": 0.1104735225013555
+    }
+  },
+  "metrics": {
+    "train": {
+      "n": 173036,
+      "n_pos": 11097,
+      "pos_rate": 0.06413116345731525,
+      "threshold": 0.5,
+      "roc_auc": 0.9550482565083493,
+      "pr_auc": 0.7038913981367876,
+      "brier": 0.08315911712893788,
+      "tn": 147975,
+      "fp": 13964,
+      "fn": 1761,
+      "tp": 9336,
+      "precision": 0.40068669527896994,
+      "recall": 0.8413084617464179,
+      "f1": 0.5428380382010058,
+      "precision_at_100": 0.99,
+      "precision_at_n_pos": 0.670091015589799,
+      "at_recall_20": {
+        "threshold": 0.9797659334672528,
+        "precision": 0.9090536665301107,
+        "recall": 0.19996395422186178,
+        "tp": 2219,
+        "fp": 222
+      }
+    },
+    "valid": {
+      "n": 17286,
+      "n_pos": 2385,
+      "pos_rate": 0.13797292606733774,
+      "threshold": 0.5,
+      "roc_auc": 0.8402146972253068,
+      "pr_auc": 0.5498549446067368,
+      "brier": 0.22089194702221385,
+      "tn": 10310,
+      "fp": 4591,
+      "fn": 463,
+      "tp": 1922,
+      "precision": 0.295102103485337,
+      "recall": 0.8058700209643606,
+      "f1": 0.43200719262755677,
+      "precision_at_100": 0.8,
+      "precision_at_n_pos": 0.5932914046121593,
+      "at_recall_20": {
+        "threshold": 0.9667837505251894,
+        "precision": 0.7194570135746606,
+        "recall": 0.2,
+        "tp": 477,
+        "fp": 186
+      }
+    },
+    "test": {
+      "n": 22132,
+      "n_pos": 2445,
+      "pos_rate": 0.1104735225013555,
+      "threshold": 0.5,
+      "roc_auc": 0.8190845525936946,
+      "pr_auc": 0.48872214365817446,
+      "brier": 0.23116707131956638,
+      "tn": 12839,
+      "fp": 6848,
+      "fn": 529,
+      "tp": 1916,
+      "precision": 0.21862163395709722,
+      "recall": 0.783640081799591,
+      "f1": 0.3418681416718708,
+      "precision_at_100": 0.86,
+      "precision_at_n_pos": 0.5165644171779141,
+      "at_recall_20": {
+        "threshold": 0.9678059796258136,
+        "precision": 0.6703296703296703,
+        "recall": 0.19959100204498978,
+        "tp": 488,
+        "fp": 240
+      }
+    }
+  },
+  "importances": [
+    {
+      "feature": "prior_bought_same_signer",
+      "roc_auc_drop": 0.25267754048699287
+    },
+    {
+      "feature": "token_is_pump",
+      "roc_auc_drop": 0.020516225730029182
+    },
+    {
+      "feature": "dow",
+      "roc_auc_drop": 0.01322773520823033
+    },
+    {
+      "feature": "hour_utc",
+      "roc_auc_drop": 0.011993278985027023
+    },
+    {
+      "feature": "signer_eq_creator",
+      "roc_auc_drop": 0.00014772404119747228
+    },
+    {
+      "feature": "creator_missing",
+      "roc_auc_drop": 2.599402449954269e-07
+    },
+    {
+      "feature": "month",
+      "roc_auc_drop": 0.0
+    },
+    {
+      "feature": "days_since_bot_start",
+      "roc_auc_drop": 0.0
+    },
+    {
+      "feature": "has_signer",
+      "roc_auc_drop": 0.0
+    },
+    {
+      "feature": "wallet_events_before",
+      "roc_auc_drop": 0.0
+    },
+    {
+      "feature": "wallet_hits_signer_before",
+      "roc_auc_drop": 0.0
+    },
+    {
+      "feature": "token_len",
+      "roc_auc_drop": -1.1307400654669842e-05
+    }
+  ],
+  "model": "/home/eduardo/Programming/KAGGLE/solana_sniper/models/baseline_hgb.joblib"
+}

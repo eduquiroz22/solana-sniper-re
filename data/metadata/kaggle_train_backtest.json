@@ -1,0 +1,216 @@
+{
+  "kaggle": {
+    "competition": "solana-sniper-bot-reverse-engineering",
+    "deadline_utc": "2026-08-14 21:00",
+    "submission": "writeup <=3000 words + public notebook + public repo",
+    "rubric": {
+      "part1_behavior": "0-20",
+      "part2_features_rules": "0-20",
+      "part2_classification": "0-15 (PR-AUC, P/R/F1; time split)",
+      "part3_backtest": "0-20",
+      "part3_vs_bot": "0-15",
+      "reproducibility": "0-10"
+    },
+    "competitor_notebook": {
+      "url": "https://www.kaggle.com/code/thtennant/solana-sniper-re-sealed-evidence",
+      "repo": "https://github.com/teddytennant/solana-sniper-reverse-engineering",
+      "takeaway": "Confirms same-slot sniper, prior-buy recency, quiet-since-last-deploy. June AP 0.223 on FULL 852k deploys (not a 200k sample). Replica +1 slot with 3 seats lost ~5 SOL; same-slot slice was optimistic."
+    }
+  },
+  "behavior": {
+    "n_wallet_rows": 87007,
+    "n_buys": 16192,
+    "n_sells": 70812,
+    "n_buy_tokens": 16163,
+    "latency": {
+      "n": 15927,
+      "frac_same_second": 0.9068876750172663,
+      "frac_same_slot": 0.7963207132542224,
+      "median_s": 0.0
+    },
+    "entry_sol_like": {
+      "n": 15734,
+      "median": 1.975308641,
+      "p90": 6.419753085,
+      "mean": 3.1982472503340538
+    },
+    "hold_seconds": {
+      "median_to_first_sell": 1.0,
+      "p90_to_first_sell": 3.0
+    },
+    "pnl_sol_like_complete": {
+      "n_positions": 15708,
+      "hit_rate": 0.7791571173924116,
+      "net_sol": 17628.990103347,
+      "median_sol": 0.3041128424999999,
+      "mean_win_sol": 1.5115662194942399,
+      "mean_loss_sol": -0.25110085241942925,
+      "note": "SOL+WSOL quote only; buy is cash out, sell is cash in; no extra fee subtraction beyond quote."
+    }
+  },
+  "model": {
+    "features": [
+      "hour_utc",
+      "dow",
+      "token_is_pump",
+      "token_len",
+      "days_since_bot_start",
+      "prior_bought_same_signer",
+      "tx_index",
+      "cu",
+      "fee_lamports",
+      "n_accounts",
+      "n_ix",
+      "n_inner_ix",
+      "cu_limit",
+      "cu_price_micro",
+      "n_pump_ix",
+      "tip_lamports",
+      "has_service_tip",
+      "has_buy_same_tx",
+      "payer_sol_pre",
+      "sol_spent_lamports",
+      "launches_before",
+      "launches_last_1h",
+      "launches_last_24h",
+      "events_before",
+      "s_since_last_launch",
+      "age_s",
+      "is_first_launch",
+      "burst_3_launches_1h",
+      "serial_10_launches"
+    ],
+    "valid_best_f1_threshold": 0.22999999999999998,
+    "splits": {
+      "train": {
+        "n": 173036,
+        "n_pos": 11097,
+        "prevalence": 0.06413116345731525,
+        "roc_auc": 0.9929213536435407,
+        "pr_auc": 0.9063329183829639,
+        "at_valid_f1_threshold": {
+          "threshold": 0.22999999999999998,
+          "n_selected": 14711,
+          "precision": 0.7072258853918836,
+          "recall": 0.9375506893755069,
+          "f1": 0.8062616243025419,
+          "precision_at_100": 1.0,
+          "tp": 10404,
+          "fp": 4307,
+          "fn": 693,
+          "tn": 157632
+        },
+        "cold_roc": 0.9943964327492002,
+        "cold_pr": 0.8245729546015728
+      },
+      "valid": {
+        "n": 17286,
+        "n_pos": 2385,
+        "prevalence": 0.13797292606733774,
+        "roc_auc": 0.9415398654178374,
+        "pr_auc": 0.7142876001536735,
+        "at_valid_f1_threshold": {
+          "threshold": 0.22999999999999998,
+          "n_selected": 3016,
+          "precision": 0.6170424403183024,
+          "recall": 0.780293501048218,
+          "f1": 0.6891316422884651,
+          "precision_at_100": 0.93,
+          "tp": 1861,
+          "fp": 1155,
+          "fn": 524,
+          "tn": 13746
+        },
+        "cold_roc": 0.9281611957284863,
+        "cold_pr": 0.4972385286544739
+      },
+      "test": {
+        "n": 22132,
+        "n_pos": 2445,
+        "prevalence": 0.1104735225013555,
+        "roc_auc": 0.9477867065380983,
+        "pr_auc": 0.7030126662460977,
+        "at_valid_f1_threshold": {
+          "threshold": 0.22999999999999998,
+          "n_selected": 3564,
+          "precision": 0.5580808080808081,
+          "recall": 0.8134969325153374,
+          "f1": 0.6620069895157265,
+          "precision_at_100": 0.93,
+          "tp": 1989,
+          "fp": 1575,
+          "fn": 456,
+          "tn": 18112
+        },
+        "cold_roc": 0.9448137935368712,
+        "cold_pr": 0.6080434582727656
+      }
+    },
+    "weighting": "none (mejor PR/F1 en valid; el peso 15x inflaba scores)"
+  },
+  "test_extra_operating_points": {
+    "top_50": {
+      "threshold": 0.9498647279957382,
+      "n_selected": 50,
+      "precision": 0.9,
+      "recall": 0.018404907975460124,
+      "f1": 0.036072144288577156,
+      "precision_at_100": 0.93,
+      "tp": 45,
+      "fp": 5,
+      "fn": 2400,
+      "tn": 19682
+    },
+    "top_100": {
+      "threshold": 0.9364274926956596,
+      "n_selected": 100,
+      "precision": 0.93,
+      "recall": 0.03803680981595092,
+      "f1": 0.0730844793713163,
+      "precision_at_100": 0.93,
+      "tp": 93,
+      "fp": 7,
+      "fn": 2352,
+      "tn": 19680
+    },
+    "top_200": {
+      "threshold": 0.91814408584077,
+      "n_selected": 200,
+      "precision": 0.925,
+      "recall": 0.07566462167689161,
+      "f1": 0.13988657844990549,
+      "precision_at_100": 0.93,
+      "tp": 185,
+      "fp": 15,
+      "fn": 2260,
+      "tn": 19672
+    },
+    "top_500": {
+      "threshold": 0.8684769952253072,
+      "n_selected": 500,
+      "precision": 0.868,
+      "recall": 0.17750511247443762,
+      "f1": 0.29473684210526313,
+      "precision_at_100": 0.93,
+      "tp": 434,
+      "fp": 66,
+      "fn": 2011,
+      "tn": 19621
+    }
+  },
+  "replica_vs_bot_test": {
+    "test_n": 22132,
+    "bot_buys": 2445,
+    "replica_buys": 3564,
+    "overlap": 1989,
+    "recall_of_bot": 0.8134969325153374,
+    "precision_of_replica": 0.5580808080808081,
+    "bot_realized_sol_on_test_tokens_with_pnl": 2614.9902599879997,
+    "n_bot_with_sol_pnl": 2363,
+    "replica_captured_bot_sol": 2215.534739862,
+    "n_replica_fp_no_price": 1575,
+    "note": "P&L only for tokens the sniper actually traded (SOL/WSOL quotes). False positives have no price path in local data (mcap_candles 2.8GiB not used). Sampled negatives inflate precision vs the full ~5M universe.",
+    "bot_net_sol_test_after_fees": 1192.392123178,
+    "replica_captured_net_sol_after_fees": 970.1643862189999
+  }
+}

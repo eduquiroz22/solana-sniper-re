@@ -1,0 +1,289 @@
+{
+  "latency": {
+    "n_positive_deploys": 15927,
+    "n_matched_buys": 15927,
+    "latency_seconds": {
+      "median": 0.0,
+      "p90": 0.0,
+      "p99": 32.0,
+      "mean": 36.418534563948015,
+      "max": 244113,
+      "fractions": {
+        "same_second": 0.9068876750172663,
+        "le_1s": 0.9851823946757079,
+        "le_5s": 0.9865636968669554,
+        "le_30s": 0.9898285929553589,
+        "gt_30s": 0.010171407044641175
+      }
+    },
+    "latency_slots": {
+      "median": 0.0,
+      "p90": 1.0,
+      "mean": 91.98970302002888,
+      "max": 616782,
+      "fractions": {
+        "same_slot": 0.7963207132542224,
+        "next_slot": 0.18704087398756827,
+        "le_2_slots": 0.9845545300433226,
+        "le_5_slots": 0.9862497645507629
+      },
+      "note": "Solana slot is ~400 ms; same slot = same block as the create tx."
+    },
+    "sniper_is_create_signer": 0,
+    "interpretation": "Most buys land in the same block or the next one, as a separate tx (sniper is not a signer on the create). That is mempool/bundle speed, not a multi-second research window."
+  },
+  "style": {
+    "all": {
+      "n": 212454,
+      "n_pos": 15927,
+      "flags": {
+        "has_any_tip": {
+          "frac_pos": 0.48483706912789604,
+          "frac_neg": 0.3919919400387733,
+          "pos_rate_if": 0.09110536934130889,
+          "pos_rate_if_not": 0.06425466932926113
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.014817605324292082,
+          "frac_neg": 0.03718064184564971,
+          "pos_rate_if": 0.031287286225639664,
+          "pos_rate_if_not": 0.07657470804398007
+        },
+        "has_service_tip": {
+          "frac_pos": 0.4707101148992277,
+          "frac_neg": 0.3549843024113735,
+          "pos_rate_if": 0.09703472644671957,
+          "pos_rate_if_not": 0.0623552994607709
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9726251020280028,
+          "frac_neg": 0.9244327751403115,
+          "pos_rate_if": 0.07856791450902027,
+          "pos_rate_if_not": 0.028520965526264146
+        },
+        "has_create_v2": {
+          "frac_pos": 0.9998116406102844,
+          "frac_neg": 0.9826486945814061,
+          "pos_rate_if": 0.0761764438555116,
+          "pos_rate_if_not": 0.0008789920890711983
+        },
+        "has_token_2022": {
+          "frac_pos": 0.9998116406102844,
+          "frac_neg": 0.9826588713001267,
+          "pos_rate_if": 0.07617571504427319,
+          "pos_rate_if_not": 0.0008795074758135445
+        }
+      },
+      "median_cu_price_micro_pos": 1600000.0,
+      "median_cu_price_micro_neg": 1000000.0,
+      "median_tip_lamports_pos": 0.0,
+      "median_tip_lamports_neg": 0.0,
+      "median_payer_sol_pre_pos": 10058712171.0,
+      "median_payer_sol_pre_neg": 2755341745.0,
+      "median_fee_lamports_pos": 157310.0,
+      "median_fee_lamports_neg": 157936.0,
+      "median_tx_index_pos": 635.0,
+      "median_tx_index_neg": 755.0
+    },
+    "test": {
+      "n": 22132,
+      "n_pos": 2445,
+      "flags": {
+        "has_any_tip": {
+          "frac_pos": 0.5145194274028629,
+          "frac_neg": 0.40442931883984357,
+          "pos_rate_if": 0.1364425162689805,
+          "pos_rate_if_not": 0.09192998760842627
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.026993865030674847,
+          "frac_neg": 0.05729669324935237,
+          "pos_rate_if": 0.05527638190954774,
+          "pos_rate_if_not": 0.11362116725570733
+        },
+        "has_service_tip": {
+          "frac_pos": 0.48752556237218814,
+          "frac_neg": 0.3471326255904912,
+          "pos_rate_if": 0.14851731871417892,
+          "pos_rate_if_not": 0.08882744931234936
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9574642126789366,
+          "frac_neg": 0.856809061817443,
+          "pos_rate_if": 0.12186995679108752,
+          "pos_rate_if_not": 0.035579883681149505
+        },
+        "has_create_v2": {
+          "frac_pos": 1.0,
+          "frac_neg": 0.9957840199116168,
+          "pos_rate_if": 0.11088938273844619,
+          "pos_rate_if_not": 0.0
+        },
+        "has_token_2022": {
+          "frac_pos": 1.0,
+          "frac_neg": 0.9957840199116168,
+          "pos_rate_if": 0.11088938273844619,
+          "pos_rate_if_not": 0.0
+        }
+      },
+      "median_cu_price_micro_pos": 1333333.0,
+      "median_cu_price_micro_neg": 1000000.0,
+      "median_tip_lamports_pos": 1000000.0,
+      "median_tip_lamports_neg": 0.0,
+      "median_payer_sol_pre_pos": 7423360186.0,
+      "median_payer_sol_pre_neg": 2500000000.0,
+      "median_fee_lamports_pos": 76815.0,
+      "median_fee_lamports_neg": 70602.0,
+      "median_tx_index_pos": 587.0,
+      "median_tx_index_neg": 599.0
+    },
+    "test_cold": {
+      "n": 18064,
+      "n_pos": 866,
+      "flags": {
+        "has_any_tip": {
+          "frac_pos": 0.3325635103926097,
+          "frac_neg": 0.3750436097220607,
+          "pos_rate_if": 0.0427426536064114,
+          "pos_rate_if_not": 0.05103302136676673
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.03348729792147806,
+          "frac_neg": 0.0651238516106524,
+          "pos_rate_if": 0.025239338555265448,
+          "pos_rate_if_not": 0.049482707655926696
+        },
+        "has_service_tip": {
+          "frac_pos": 0.29907621247113164,
+          "frac_neg": 0.3099197581114083,
+          "pos_rate_if": 0.04634102701735552,
+          "pos_rate_if_not": 0.04865731462925852
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9387990762124712,
+          "frac_neg": 0.8479474357483429,
+          "pos_rate_if": 0.052805923616523774,
+          "pos_rate_if_not": 0.019865067466266866
+        },
+        "has_create_v2": {
+          "frac_pos": 1.0,
+          "frac_neg": 0.9953482963135248,
+          "pos_rate_if": 0.04815391459074733,
+          "pos_rate_if_not": 0.0
+        },
+        "has_token_2022": {
+          "frac_pos": 1.0,
+          "frac_neg": 0.9953482963135248,
+          "pos_rate_if": 0.04815391459074733,
+          "pos_rate_if_not": 0.0
+        }
+      },
+      "median_cu_price_micro_pos": 434977.5,
+      "median_cu_price_micro_neg": 1000000.0,
+      "median_tip_lamports_pos": 0.0,
+      "median_tip_lamports_neg": 0.0,
+      "median_payer_sol_pre_pos": 2944194671.5,
+      "median_payer_sol_pre_neg": 1821840208.0,
+      "median_fee_lamports_pos": 53070.5,
+      "median_fee_lamports_neg": 54061.0,
+      "median_tx_index_pos": 612.5,
+      "median_tx_index_neg": 601.0
+    },
+    "train_cold": {
+      "n": 155057,
+      "n_pos": 2508,
+      "flags": {
+        "has_any_tip": {
+          "frac_pos": 0.3062200956937799,
+          "frac_neg": 0.3724377085395512,
+          "pos_rate_if": 0.013337269680287585,
+          "pos_rate_if_not": 0.017850914089911157
+        },
+        "has_jito_tip": {
+          "frac_pos": 0.014354066985645933,
+          "frac_neg": 0.027761571691718726,
+          "pos_rate_if": 0.00842893935846406,
+          "pos_rate_if_not": 0.016394094942501294
+        },
+        "has_service_tip": {
+          "frac_pos": 0.2926634768740032,
+          "frac_neg": 0.3448531291584999,
+          "pos_rate_if": 0.013760521924973285,
+          "pos_rate_if_not": 0.017440717291281608
+        },
+        "has_buy_same_tx": {
+          "frac_pos": 0.9784688995215312,
+          "frac_neg": 0.9334771122721224,
+          "pos_rate_if": 0.01694107901004453,
+          "pos_rate_if_not": 0.005293079788276808
+        },
+        "has_create_v2": {
+          "frac_pos": 0.9988038277511961,
+          "frac_neg": 0.9787281463660856,
+          "pos_rate_if": 0.016500997964547556,
+          "pos_rate_if_not": 0.0009236453201970443
+        },
+        "has_token_2022": {
+          "frac_pos": 0.9988038277511961,
+          "frac_neg": 0.9787412569076166,
+          "pos_rate_if": 0.0165007805758476,
+          "pos_rate_if_not": 0.0009242144177449168
+        }
+      },
+      "median_cu_price_micro_pos": 1000000.0,
+      "median_cu_price_micro_neg": 1000000.0,
+      "median_tip_lamports_pos": 0.0,
+      "median_tip_lamports_neg": 0.0,
+      "median_payer_sol_pre_pos": 4365358100.0,
+      "median_payer_sol_pre_neg": 2444808671.0,
+      "median_fee_lamports_pos": 134080.5,
+      "median_fee_lamports_neg": 160000.0,
+      "median_tx_index_pos": 716.0,
+      "median_tx_index_neg": 789.0
+    },
+    "n_cold": 186916,
+    "coverage_has_buy": 1.0
+  },
+  "model_with_new_fields": {
+    "features": [
+      "hour_utc",
+      "dow",
+      "token_is_pump",
+      "prior_bought_same_signer",
+      "tx_index",
+      "cu",
+      "fee_lamports",
+      "n_accounts",
+      "n_ix",
+      "n_inner_ix",
+      "has_pump_program",
+      "has_compute_budget",
+      "cu_limit",
+      "cu_price_micro",
+      "n_pump_ix",
+      "n_sol_transfers",
+      "max_xfer_lamports",
+      "tip_lamports",
+      "has_jito_tip",
+      "has_service_tip",
+      "has_any_tip",
+      "has_buy_same_tx",
+      "has_create_v2",
+      "has_token_2022",
+      "payer_sol_pre",
+      "payer_sol_post"
+    ],
+    "splits": {
+      "valid": {
+        "roc_auc": 0.9145513991223979,
+        "pr_auc": 0.6730345953762904,
+        "cold_roc": 0.8537901292482757
+      },
+      "test": {
+        "roc_auc": 0.91651686314129,
+        "pr_auc": 0.6391571435585759,
+        "cold_roc": 0.8690469540069512
+      }
+    }
+  }
+}

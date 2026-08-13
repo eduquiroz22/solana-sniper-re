@@ -1,0 +1,24 @@
+{
+  "features": [
+    "hour_utc",
+    "dow",
+    "token_is_pump",
+    "prior_bought_same_signer",
+    "deployer_events_before",
+    "days_since_bot_start"
+  ],
+  "splits": {
+    "valid": {
+      "roc_auc": 0.8928167273677833,
+      "pr_auc": 0.6274235550892815,
+      "cold_roc": 0.7899058320958454,
+      "mean_deployer_events": 1956.452852018975
+    },
+    "test": {
+      "roc_auc": 0.8802279394403809,
+      "pr_auc": 0.5691666285287562,
+      "cold_roc": 0.7892244774689146,
+      "mean_deployer_events": 2255.352295318995
+    }
+  }
+}

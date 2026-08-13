@@ -1,0 +1,88 @@
+{
+  "ubuntu": {
+    "pretty_name": "Ubuntu 24.04.3 LTS",
+    "version": "24.04.3 LTS (Noble Numbat)",
+    "version_id": "24.04",
+    "os_release": {
+      "PRETTY_NAME": "Ubuntu 24.04.3 LTS",
+      "NAME": "Ubuntu",
+      "VERSION_ID": "24.04",
+      "VERSION": "24.04.3 LTS (Noble Numbat)",
+      "VERSION_CODENAME": "noble",
+      "ID": "ubuntu",
+      "ID_LIKE": "debian",
+      "HOME_URL": "https://www.ubuntu.com/",
+      "SUPPORT_URL": "https://help.ubuntu.com/",
+      "BUG_REPORT_URL": "https://bugs.launchpad.net/ubuntu/",
+      "PRIVACY_POLICY_URL": "https://www.ubuntu.com/legal/terms-and-policies/privacy-policy",
+      "UBUNTU_CODENAME": "noble",
+      "LOGO": "ubuntu-logo"
+    }
+  },
+  "kernel": "7.0.0-28-generic",
+  "uname": {
+    "system": "Linux",
+    "node": "eduardo-Dell-G15-5510",
+    "release": "7.0.0-28-generic",
+    "version": "#28~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Jul  1 15:50:57 UTC 2",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "python": {
+    "version": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:27:36) [GCC 11.2.0]",
+    "executable": "/home/eduardo/anaconda3/bin/python3",
+    "version_info": [
+      3,
+      12,
+      7
+    ]
+  },
+  "disk_df": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2   66G   36G   27G  58% /\n/dev/nvme0n1p4  384G  334G   31G  92% /home\n/dev/nvme0n1p4  384G  334G   31G  92% /home",
+  "memory_free": "total        used        free      shared  buff/cache   available\nMem:            15Gi       9,7Gi       1,8Gi       1,3Gi       5,6Gi       5,7Gi\nSwap:           19Gi       3,4Gi        15Gi",
+  "tools": {
+    "curl": {
+      "present": true,
+      "path": "/home/eduardo/anaconda3/bin/curl"
+    },
+    "wget": {
+      "present": true,
+      "path": "/usr/bin/wget"
+    },
+    "aria2c": {
+      "present": true,
+      "path": "/usr/bin/aria2c"
+    },
+    "git": {
+      "present": true,
+      "path": "/usr/bin/git"
+    },
+    "pigz": {
+      "present": true,
+      "path": "/usr/bin/pigz"
+    },
+    "gzip": {
+      "present": true,
+      "path": "/usr/bin/gzip"
+    },
+    "zstd": {
+      "present": true,
+      "path": "/home/eduardo/anaconda3/bin/zstd"
+    },
+    "duckdb": {
+      "present": false,
+      "path": null
+    }
+  },
+  "python_packages": {
+    "polars": "1.43.2",
+    "pyarrow": "16.1.0",
+    "duckdb": "1.5.5",
+    "pandas": "2.2.2",
+    "yaml": "6.0.1",
+    "httpx": "0.27.0",
+    "tqdm": "4.66.5",
+    "kaggle": "2.2.3"
+  },
+  "cwd": "/home/eduardo/Programming/KAGGLE/solana_sniper",
+  "project_root": "/home/eduardo/Programming/KAGGLE/solana_sniper"
+}

@@ -1,0 +1,312 @@
+{
+  "note": "from/to are empty and transfer_in/out are ~17 rows, so a send hot→cold or cold→hot is proxied by distinct wallets in the same tx_hash, with the hot wallet already bought before that tx. Rare token = shared token_address whose n_unique wallets in this deployer activity set is <= K (global count; conservative).",
+  "token_popularity": {
+    "n_tokens": 5245678,
+    "n_wallets_quantiles": {
+      "p50": 1.0,
+      "p75": 2.0,
+      "p90": 4.0,
+      "p95": 8.0,
+      "p99": 31.0
+    },
+    "n_wallets_max": 3232,
+    "n_tokens_le_k": {
+      "le_2": 4254458,
+      "le_5": 4860126,
+      "le_10": 5056630,
+      "le_25": 5177388,
+      "le_50": 5218432,
+      "le_100": 5238051
+    }
+  },
+  "co_tx_distinct_wallets": {
+    "all": {
+      "n": 186916,
+      "n_pos": 4095,
+      "n_flag": 286,
+      "frac_pos": 0.002442002442002442,
+      "frac_neg": 0.0015096733963822536,
+      "pos_rate_if_flag": 0.03496503496503497,
+      "pos_rate_if_not": 0.021888228044794514
+    },
+    "train": {
+      "n": 155057,
+      "n_pos": 2508,
+      "n_flag": 153,
+      "frac_pos": 0.0023923444976076554,
+      "frac_neg": 0.0009636248025224682,
+      "pos_rate_if_flag": 0.0392156862745098,
+      "pos_rate_if_not": 0.016151939265609667
+    },
+    "valid": {
+      "n": 13795,
+      "n_pos": 721,
+      "n_flag": 69,
+      "frac_pos": 0.004160887656033287,
+      "frac_neg": 0.005048187241854061,
+      "pos_rate_if_flag": 0.043478260869565216,
+      "pos_rate_if_not": 0.05230948564767594
+    },
+    "test": {
+      "n": 18064,
+      "n_pos": 866,
+      "n_flag": 64,
+      "frac_pos": 0.0011547344110854503,
+      "frac_neg": 0.0036632166530991975,
+      "pos_rate_if_flag": 0.015625,
+      "pos_rate_if_not": 0.04805555555555555
+    }
+  },
+  "co_tx_event_type_pairs": [
+    {
+      "event_type": "buy",
+      "hot_event": "buy",
+      "len": 2277
+    },
+    {
+      "event_type": "buy",
+      "hot_event": "launch",
+      "len": 7
+    },
+    {
+      "event_type": "sell",
+      "hot_event": "sell",
+      "len": 3
+    },
+    {
+      "event_type": "launch",
+      "hot_event": "buy",
+      "len": 1
+    }
+  ],
+  "shared_rare_token_by_max_wallets": {
+    "2": {
+      "all": {
+        "n": 186916,
+        "n_pos": 4095,
+        "n_flag": 21443,
+        "frac_pos": 0.07838827838827839,
+        "frac_neg": 0.1155337734724129,
+        "pos_rate_if_flag": 0.014969920253695845,
+        "pos_rate_if_not": 0.022807346213581672
+      },
+      "train": {
+        "n": 155057,
+        "n_pos": 2508,
+        "n_flag": 14399,
+        "frac_pos": 0.07416267942583732,
+        "frac_neg": 0.0931700633894683,
+        "pos_rate_if_flag": 0.012917563719702757,
+        "pos_rate_if_not": 0.016508126093076825
+      },
+      "valid": {
+        "n": 13795,
+        "n_pos": 721,
+        "n_flag": 3406,
+        "frac_pos": 0.08183079056865465,
+        "frac_neg": 0.25600428331038705,
+        "pos_rate_if_flag": 0.017322372284204347,
+        "pos_rate_if_not": 0.06372124362306285
+      },
+      "test": {
+        "n": 18064,
+        "n_pos": 866,
+        "n_flag": 3638,
+        "frac_pos": 0.08775981524249422,
+        "frac_neg": 0.20711710664030702,
+        "pos_rate_if_flag": 0.020890599230346345,
+        "pos_rate_if_not": 0.05476223485373631
+      }
+    },
+    "5": {
+      "all": {
+        "n": 186916,
+        "n_pos": 4095,
+        "n_flag": 36341,
+        "frac_pos": 0.1794871794871795,
+        "frac_neg": 0.19475880779560334,
+        "pos_rate_if_flag": 0.020225090118598826,
+        "pos_rate_if_not": 0.022314461231944215
+      },
+      "train": {
+        "n": 155057,
+        "n_pos": 2508,
+        "n_flag": 24920,
+        "frac_pos": 0.17583732057416268,
+        "frac_neg": 0.16046647306767006,
+        "pos_rate_if_flag": 0.017696629213483146,
+        "pos_rate_if_not": 0.015883261485972477
+      },
+      "valid": {
+        "n": 13795,
+        "n_pos": 721,
+        "n_flag": 5450,
+        "frac_pos": 0.20527045769764216,
+        "frac_neg": 0.40553770842894293,
+        "pos_rate_if_flag": 0.027155963302752294,
+        "pos_rate_if_not": 0.06866387058118634
+      },
+      "test": {
+        "n": 18064,
+        "n_pos": 866,
+        "n_flag": 5971,
+        "frac_pos": 0.16859122401847576,
+        "frac_neg": 0.3387021746714734,
+        "pos_rate_if_flag": 0.02445151565901859,
+        "pos_rate_if_not": 0.05953857603572314
+      }
+    },
+    "10": {
+      "all": {
+        "n": 186916,
+        "n_pos": 4095,
+        "n_flag": 42188,
+        "frac_pos": 0.24884004884004884,
+        "frac_neg": 0.22518747846253986,
+        "pos_rate_if_flag": 0.024153787806959325,
+        "pos_rate_if_not": 0.021253662041899286
+      },
+      "train": {
+        "n": 155057,
+        "n_pos": 2508,
+        "n_flag": 29154,
+        "frac_pos": 0.25757575757575757,
+        "frac_neg": 0.18687765898170425,
+        "pos_rate_if_flag": 0.022158194415860602,
+        "pos_rate_if_not": 0.014789163085867692
+      },
+      "valid": {
+        "n": 13795,
+        "n_pos": 721,
+        "n_flag": 6098,
+        "frac_pos": 0.27045769764216365,
+        "frac_neg": 0.45150680740400795,
+        "pos_rate_if_flag": 0.03197769760577238,
+        "pos_rate_if_not": 0.0683383136286865
+      },
+      "test": {
+        "n": 18064,
+        "n_pos": 866,
+        "n_flag": 6936,
+        "frac_pos": 0.20554272517321015,
+        "frac_neg": 0.3929526689149901,
+        "pos_rate_if_flag": 0.02566320645905421,
+        "pos_rate_if_not": 0.06182602444284687
+      }
+    },
+    "25": {
+      "all": {
+        "n": 186916,
+        "n_pos": 4095,
+        "n_flag": 47557,
+        "frac_pos": 0.35702075702075703,
+        "frac_neg": 0.2521318666892753,
+        "pos_rate_if_flag": 0.030742056900140882,
+        "pos_rate_if_not": 0.01889364877761752
+      },
+      "train": {
+        "n": 155057,
+        "n_pos": 2508,
+        "n_flag": 33052,
+        "frac_pos": 0.377591706539075,
+        "frac_neg": 0.21045696792506013,
+        "pos_rate_if_flag": 0.02865182137238291,
+        "pos_rate_if_not": 0.012794557600098356
+      },
+      "valid": {
+        "n": 13795,
+        "n_pos": 721,
+        "n_flag": 6768,
+        "frac_pos": 0.36615811373092927,
+        "frac_neg": 0.49747590637907296,
+        "pos_rate_if_flag": 0.03900709219858156,
+        "pos_rate_if_not": 0.06503486551871353
+      },
+      "test": {
+        "n": 18064,
+        "n_pos": 866,
+        "n_flag": 7737,
+        "frac_pos": 0.28983833718244806,
+        "frac_neg": 0.43528317246191417,
+        "pos_rate_if_flag": 0.032441514799017704,
+        "pos_rate_if_not": 0.05955262903069623
+      }
+    },
+    "50": {
+      "all": {
+        "n": 186916,
+        "n_pos": 4095,
+        "n_flag": 51035,
+        "frac_pos": 0.45006105006105007,
+        "frac_neg": 0.26907193374940513,
+        "pos_rate_if_flag": 0.03611247183305574,
+        "pos_rate_if_not": 0.016573325188952097
+      },
+      "train": {
+        "n": 155057,
+        "n_pos": 2508,
+        "n_flag": 35382,
+        "frac_pos": 0.4880382775119617,
+        "frac_neg": 0.2239149388065474,
+        "pos_rate_if_flag": 0.034593861285399354,
+        "pos_rate_if_not": 0.01072905786505118
+      },
+      "valid": {
+        "n": 13795,
+        "n_pos": 721,
+        "n_flag": 7170,
+        "frac_pos": 0.43966712898751736,
+        "frac_neg": 0.5241701086125133,
+        "pos_rate_if_flag": 0.04421199442119944,
+        "pos_rate_if_not": 0.0609811320754717
+      },
+      "test": {
+        "n": 18064,
+        "n_pos": 866,
+        "n_flag": 8483,
+        "frac_pos": 0.34872979214780603,
+        "frac_neg": 0.4756948482381672,
+        "pos_rate_if_flag": 0.03560061299068726,
+        "pos_rate_if_not": 0.058866506627700654
+      }
+    },
+    "100": {
+      "all": {
+        "n": 186916,
+        "n_pos": 4095,
+        "n_flag": 53625,
+        "frac_pos": 0.536996336996337,
+        "frac_neg": 0.2812915365302673,
+        "pos_rate_if_flag": 0.04100699300699301,
+        "pos_rate_if_not": 0.014224516283920144
+      },
+      "train": {
+        "n": 155057,
+        "n_pos": 2508,
+        "n_flag": 37243,
+        "frac_pos": 0.5905103668261563,
+        "frac_neg": 0.23442959311434358,
+        "pos_rate_if_flag": 0.03976586204118895,
+        "pos_rate_if_not": 0.008717130391973789
+      },
+      "valid": {
+        "n": 13795,
+        "n_pos": 721,
+        "n_flag": 7424,
+        "frac_pos": 0.4895977808599168,
+        "frac_neg": 0.5408444240477284,
+        "pos_rate_if_flag": 0.047548491379310345,
+        "pos_rate_if_not": 0.05776173285198556
+      },
+      "test": {
+        "n": 18064,
+        "n_pos": 866,
+        "n_flag": 8958,
+        "frac_pos": 0.4214780600461894,
+        "frac_neg": 0.4996511222235144,
+        "pos_rate_if_flag": 0.04074570216566198,
+        "pos_rate_if_not": 0.05501866900944432
+      }
+    }
+  }
+}
